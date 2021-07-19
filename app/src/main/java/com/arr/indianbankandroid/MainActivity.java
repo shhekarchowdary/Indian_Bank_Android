@@ -9,12 +9,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     Button mLogin;
     ImageView mImageView;
+
+    FirebaseDatabase rootNode;
+    DatabaseReference referenceCustomers;
+    DatabaseReference referenceAccounts;
 
     public static ArrayList<Customer> mCustomers = new ArrayList<>();
 
@@ -41,10 +48,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void fillData() {
+
+        rootNode = FirebaseDatabase.getInstance();
+        referenceCustomers = rootNode.getReference("Customers");
+        referenceAccounts = rootNode.getReference("Accounts");
+
+        Customer cus1 = new Customer("10101", "Soma Sekhar Anaparthi", "Ramarao Anaparthi", "13-01-1996"
+                , "Business", 8989898989L, "shhekar@gmail.com", "katheru, Rajahmundry",
+                "Rajahmundry", "ASDF45678h", "1234 1234 1234", "1234",
+                "1234");
+
+        referenceCustomers.child(cus1.getCin()).setValue(cus1);
+
         mCustomers.add(new Customer("10101", "Soma Sekhar Anaparthi", "Ramarao Anaparthi", "13-01-1996"
                 , "Business", 8989898989L, "shhekar@gmail.com", "katheru, Rajahmundry",
                 "Rajahmundry", "ASDF45678h", "1234 1234 1234", "1234",
                 "1234"));
+
         mCustomers.add(new Customer("10102", "Manikanta", "Soma sekhar", "13-02-1998"
                 , "Business", 787878787878L, "manikanta@gmail.com", "Morampudi, Rajahmundry",
                 "Rajahmundry", "ASDF45678G", "4567 4567 4567", "2345234523452345",
