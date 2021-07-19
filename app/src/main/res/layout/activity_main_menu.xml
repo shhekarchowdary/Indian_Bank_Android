@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainMenu">
+
+    <Button
+        android:id="@+id/btnCusOverview"
+        android:layout_width="160dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="11dp"
+        android:text="Customer OverView"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnBookings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBanking" />
+
+    <Button
+        android:id="@+id/btnBookings"
+        android:layout_width="160dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="39dp"
+        android:backgroundTint="@color/teal_700"
+        android:backgroundTintMode="add"
+        android:text="Bookings"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnCusOverview"
+        app:layout_constraintTop_toBottomOf="@+id/btnPayBills" />
+
+    <Button
+        android:id="@+id/btnPayBills"
+        android:layout_width="160dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="39dp"
+        android:text="Pay Bills"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnBanking"
+        app:layout_constraintTop_toBottomOf="@+id/tvCusName" />
+
+    <Button
+        android:id="@+id/btnBanking"
+        android:layout_width="160dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="11dp"
+        android:backgroundTint="@color/teal_700"
+        android:backgroundTintMode="add"
+        android:text="Banking"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnPayBills"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCusName" />
+
+    <TextView
+        android:id="@+id/tvCusName"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:text="Log Out"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

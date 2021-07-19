@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MovieActivity">
+
+    <RadioGroup
+        android:id="@+id/movieradiogrp"
+        android:layout_width="401dp"
+        android:layout_height="193dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieheading">
+
+        <RadioButton
+            android:id="@+id/homealone1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:buttonTint="@color/teal_700"
+            android:text="Home Alone"
+            android:textColor="@color/teal_700"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/lordrings"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:buttonTint="@color/teal_700"
+            android:text="Lord Of The Rings"
+            android:textColor="@color/teal_700"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/twilight1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:buttonTint="@color/teal_700"
+            android:text="Twilight"
+            android:textColor="@color/teal_700"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/fastnfurious1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:buttonTint="@color/teal_700"
+            android:text="The Fast and The Furious"
+            android:textColor="@color/teal_700"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/movieheading"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Book Your Movie Tickets"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nofst"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="No of Seats"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieradiogrp" />
+
+    <Button
+        android:id="@+id/bookbtn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:background="@color/purple_500"
+        android:text="Book"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moviegetfaretv" />
+
+    <EditText
+        android:id="@+id/noofseats"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvdd"
+        app:layout_constraintStart_toEndOf="@+id/nofst"
+        app:layout_constraintTop_toBottomOf="@+id/movieradiogrp"
+        app:layout_constraintVertical_bias="0.75" />
+
+    <Button
+        android:id="@+id/moviefarebtn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:text="Get Fare"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moviesp" />
+
+    <TextView
+        android:id="@+id/moviegetfaretv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moviefarebtn" />
+
+    <TextView
+        android:id="@+id/tvdd"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Choose Account"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nofst" />
+
+    <Spinner
+        android:id="@+id/moviesp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvdd" />
+</androidx.constraintlayout.widget.ConstraintLayout>

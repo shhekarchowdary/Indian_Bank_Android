@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.arr.indianbankandroid">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/appicon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.IndianBankAndroid">
+        <activity android:name=".OverView"/>
+        <activity android:name=".TravelActivity"/>
+        <activity android:name=".PaybillsActivity"/>
+        <activity android:name=".MovieActivity"/>
+        <activity android:name=".LiveConcertActivity"/>
+        <activity android:name=".BookingsActivity"/>
+        <activity android:name=".WaterActivity"/>
+        <activity android:name=".PhoneActivity"/>
+        <activity android:name=".BroadBandActivity"/>
+        <activity android:name=".GasActivity"/>
+        <activity android:name=".HydroActivity"/>
+        <activity android:name=".TransferToOthersAccountActivity" />
+        <activity android:name=".Transcation_Success"/>
+        <activity android:name=".BankTranscations"/>
+        <activity android:name=".BankingSubMenu"/>
+        <activity android:name=".MainMenu"/>
+        <activity android:name=".LoginActivity2"/>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    tools:context=".BankTranscations">
+
+    <Spinner
+        android:id="@+id/spFromAcc"
+        android:layout_width="215dp"
+        android:layout_height="40dp"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toEndOf="@+id/tvFromAcc"
+        app:layout_constraintTop_toBottomOf="@+id/tvBankTranTxt" />
+
+    <Spinner
+        android:id="@+id/spToAcc"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/tvToAcc"
+        app:layout_constraintTop_toBottomOf="@+id/etvAmount" />
+
+    <TextView
+        android:id="@+id/tvToAcc"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/teal_700"
+        android:gravity="center|right"
+        android:paddingEnd="3dp"
+        android:text="To Account:"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAmount" />
+
+    <TextView
+        android:id="@+id/tvBalanceAmount"
+        android:layout_width="162dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center|start"
+        android:textColor="@color/purple_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/tvBalance"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccount" />
+
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/purple_700"
+        android:gravity="center|right"
+        android:paddingEnd="3dp"
+        android:text="Enter Amount:"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFromAcc" />
+
+    <TextView
+        android:id="@+id/tvFromAcc"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/teal_700"
+        android:gravity="center|right"
+        android:paddingEnd="3dp"
+        android:text="From Acct"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBankTranTxt" />
+
+    <TextView
+        android:id="@+id/tvBalance"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/purple_700"
+        android:gravity="center|right"
+        android:paddingEnd="3dp"
+        android:text="Balance:"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFromAcc" />
+
+    <EditText
+        android:id="@+id/etvAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Enter Amount"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/tvAmount"
+        app:layout_constraintTop_toBottomOf="@+id/spFromAcc" />
+
+    <Button
+        android:id="@+id/btnTransfer"
+        android:layout_width="216dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="98dp"
+        android:text="Transfer"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spToAcc" />
+
+    <TextView
+        android:id="@+id/tvAccount"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/teal_700"
+        android:gravity="center|right"
+        android:paddingEnd="3dp"
+        android:text="Account:"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBankTranTxt" />
+
+    <TextView
+        android:id="@+id/tvBankTranTxt"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

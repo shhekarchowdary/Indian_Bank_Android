@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TransferToOthersAccountActivity">
+
+    <TextView
+        android:id="@+id/tvSenderDetails"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Sender Details"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTOATxt" />
+
+    <TextView
+        android:id="@+id/tvAmountTOA"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Amount"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccountTOA" />
+
+    <EditText
+        android:id="@+id/etvTOAAccountNum"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Enter Account Number"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/tvAccountNoTOA"
+        app:layout_constraintTop_toBottomOf="@+id/tvBeneficiaryDetails" />
+
+    <Spinner
+        android:id="@+id/spTOAAccounts"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toEndOf="@+id/tvAccountTOA"
+        app:layout_constraintTop_toBottomOf="@+id/tvSenderDetails" />
+
+    <TextView
+        android:id="@+id/tvAccountTOA"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Account"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSenderDetails" />
+
+    <TextView
+        android:id="@+id/tvAccountCellNum"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccountHolderName" />
+
+    <Button
+        android:id="@+id/btnFetchAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:text="Fetch Account Details"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etvTOAAccountNum" />
+
+    <TextView
+        android:id="@+id/tvAccountHolderName"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFetchAccount" />
+
+    <EditText
+        android:id="@+id/etvTOAAmount"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Enter Amount"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/tvAmountTOA"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccountTOA" />
+
+    <Button
+        android:id="@+id/btnTOATransfer"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:text="Transfer"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccountCellNum" />
+
+    <TextView
+        android:id="@+id/tvAccountNoTOA"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Account Number"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBeneficiaryDetails" />
+
+    <TextView
+        android:id="@+id/tvBeneficiaryDetails"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="46dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Beneficiary Details"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etvTOAAmount" />
+
+    <TextView
+        android:id="@+id/tvTOATxt"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Transfer to Others"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

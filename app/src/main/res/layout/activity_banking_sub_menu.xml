@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BankingSubMenu">
+
+    <Button
+        android:id="@+id/btnTMA"
+        android:layout_width="160dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="Transfer to My Accounts"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCB"
+        android:layout_width="160dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="280dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="Check Balance"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnTOA"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/purple_700"
+        android:text="Transfer to Others"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCB" />
+
+    <TextView
+        android:id="@+id/tvBankingTxt"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Banking"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textAlignment="center"
+    tools:context=".TravelActivity">
+
+    <TextView
+        android:id="@+id/travelheading"
+        android:layout_width="412dp"
+        android:layout_height="66dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Book Your Tickets"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/travelradiogrp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/travelheading">
+
+        <RadioButton
+            android:id="@+id/flightbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:buttonTint="@color/teal_700"
+            android:text="Flight"
+            android:textColor="@color/teal_700"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/trainbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:buttonTint="@color/teal_700"
+            android:text="Train"
+            android:textColor="@color/teal_700"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/busbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:buttonTint="@color/teal_700"
+            android:text="Bus"
+            android:textColor="@color/teal_700"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/sourcetv"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Source"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/travelradiogrp" />
+
+    <TextView
+        android:id="@+id/dsttv"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Destination"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/destinationet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sourcetv" />
+
+    <TextView
+        android:id="@+id/datetv"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Date"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dsttv" />
+
+    <EditText
+        android:id="@+id/Sourceet"
+        android:layout_width="249dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Enter Source"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/sourcetv"
+        app:layout_constraintTop_toBottomOf="@+id/travelradiogrp" />
+
+    <EditText
+        android:id="@+id/destinationet"
+        android:layout_width="249dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Enter Destination"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/dsttv"
+        app:layout_constraintTop_toBottomOf="@+id/Sourceet" />
+
+    <EditText
+        android:id="@+id/dateet"
+        android:layout_width="256dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Enter Date"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/datetv"
+        app:layout_constraintTop_toBottomOf="@+id/destinationet" />
+
+    <TextView
+        android:id="@+id/bookticketstv"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Choose Account"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bookticketsspinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/bookticketsspinner"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/booktcktbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/booktcktbtn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="60dp"
+        android:background="@android:drawable/btn_default"
+        android:backgroundTint="@color/teal_700"
+        android:text="Pay"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/gettcktbtn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:background="@android:drawable/btn_default"
+        android:text="Get Ticket Price"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateet" />
+
+    <TextView
+        android:id="@+id/txtTravelTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/teal_700"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gettcktbtn" />
+</androidx.constraintlayout.widget.ConstraintLayout>

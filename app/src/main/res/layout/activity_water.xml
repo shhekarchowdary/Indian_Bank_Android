@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WaterActivity">
+
+    <TextView
+        android:id="@+id/watertv"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Water Payment"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/watersubtv"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Enter Subscription number"
+        android:inputType="number"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/hydtv"
+        app:layout_constraintTop_toBottomOf="@+id/watertv" />
+
+    <TextView
+        android:id="@+id/hydtv"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Subscription"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/watertv" />
+
+    <TextView
+        android:id="@+id/hydtv6"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Amount"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hydtv" />
+
+    <EditText
+        android:id="@+id/wateramt"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Enter Amount"
+        android:inputType="number"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/hydtv6"
+        app:layout_constraintTop_toBottomOf="@+id/watersubtv" />
+
+    <Spinner
+        android:id="@+id/waterspinner"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hydtv8" />
+
+    <TextView
+        android:id="@+id/hydtv8"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Choose Account"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wateramt" />
+
+    <Button
+        android:id="@+id/waterpaybtn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:background="@color/teal_700"
+        android:text="Pay"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waterspinner" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

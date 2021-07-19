@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OverView">
+
+    <TextView
+        android:id="@+id/tvmAccount2"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/teal_700"
+        android:gravity="start"
+        android:paddingStart="10dp"
+        android:text="Salary Account "
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmAccount1Balance" />
+
+    <TextView
+        android:id="@+id/tvmAccount3"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/purple_700"
+        android:gravity="start"
+        android:paddingStart="10dp"
+        android:text="Salary Account "
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmAccount2Balance" />
+
+    <TextView
+        android:id="@+id/tvCombinedBalance"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/teal_700"
+        android:gravity="center|left"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmCombinedBalance"
+        app:layout_constraintTop_toBottomOf="@+id/tvPanNumber" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Customer Overview"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvmCin"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/teal_700"
+        android:text="CIN"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/tvCin"
+        android:layout_width="230dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/purple_700"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmCin"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/tvmCustomerName"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/teal_700"
+        android:text="Customer Name"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmCin" />
+
+    <TextView
+        android:id="@+id/tvCustomerName"
+        android:layout_width="230dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/purple_700"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmCustomerName"
+        app:layout_constraintTop_toBottomOf="@+id/tvCin" />
+
+    <TextView
+        android:id="@+id/tvmFatherName"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/teal_700"
+        android:text="Father Name"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmCustomerName" />
+
+    <TextView
+        android:id="@+id/tvFatherName"
+        android:layout_width="230dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/purple_700"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmFatherName"
+        app:layout_constraintTop_toBottomOf="@+id/tvCustomerName" />
+
+    <TextView
+        android:id="@+id/tvmDateOfBirth"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/teal_700"
+        android:text="Date Of Birth"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmFatherName" />
+
+    <TextView
+        android:id="@+id/tvDateOfBirth"
+        android:layout_width="230dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/purple_700"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmDateOfBirth"
+        app:layout_constraintTop_toBottomOf="@+id/tvFatherName" />
+
+    <TextView
+        android:id="@+id/tvmMobileNumber"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/teal_700"
+        android:text="Mobile Number"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmDateOfBirth" />
+
+    <TextView
+        android:id="@+id/tvMobileNumber"
+        android:layout_width="230dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/purple_700"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmMobileNumber"
+        app:layout_constraintTop_toBottomOf="@+id/tvDateOfBirth" />
+
+    <TextView
+        android:id="@+id/tvmEmailId"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/teal_700"
+        android:text="Email Id"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmMobileNumber" />
+
+    <TextView
+        android:id="@+id/tvEmailId"
+        android:layout_width="230dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/purple_700"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmEmailId"
+        app:layout_constraintTop_toBottomOf="@+id/tvMobileNumber" />
+
+    <TextView
+        android:id="@+id/tvmAddress"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/teal_700"
+        android:text="Address"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmEmailId" />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="230dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/purple_700"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmAddress"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailId" />
+
+    <TextView
+        android:id="@+id/tvmAadharNumber"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/teal_700"
+        android:text="Aadhar Number"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmAddress" />
+
+    <TextView
+        android:id="@+id/tvAadharNumber"
+        android:layout_width="230dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/purple_700"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmAadharNumber"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+
+    <TextView
+        android:id="@+id/tvmPanNumber"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/teal_700"
+        android:text="PAN Number"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmAadharNumber" />
+
+    <TextView
+        android:id="@+id/tvPanNumber"
+        android:layout_width="230dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/purple_700"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmPanNumber"
+        app:layout_constraintTop_toBottomOf="@+id/tvAadharNumber" />
+
+    <TextView
+        android:id="@+id/tvmCombinedBalance"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Combined Balance:"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmPanNumber" />
+
+    <TextView
+        android:id="@+id/tvmAccount1"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/purple_700"
+        android:gravity="start|center_horizontal|center_vertical"
+        android:paddingStart="10dp"
+        android:text="Savings Account "
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmCombinedBalance" />
+
+    <TextView
+        android:id="@+id/tvAccount1Number"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/purple_700"
+        android:gravity="center|left"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmAccount1"
+        app:layout_constraintTop_toBottomOf="@+id/tvCombinedBalance" />
+
+    <TextView
+        android:id="@+id/tvAccount2Balance"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:background="@color/teal_700"
+        android:gravity="center|left"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmAccount2"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccount2Number" />
+
+    <TextView
+        android:id="@+id/tvAccount3Balance"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:background="@color/purple_700"
+        android:gravity="center|left"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmAccount3Balance"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccount3Number" />
+
+    <TextView
+        android:id="@+id/tvmAccount1Balance"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:background="@color/purple_700"
+        android:gravity="start|center_horizontal|center_vertical"
+        android:paddingStart="10dp"
+        android:text="Balance"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmAccount1" />
+
+    <TextView
+        android:id="@+id/tvAccount1Balance"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:background="@color/purple_700"
+        android:gravity="center|left"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmAccount1Balance"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccount1Number" />
+
+    <TextView
+        android:id="@+id/tvmAccount3Balance"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/purple_700"
+        android:gravity="start"
+        android:paddingStart="10dp"
+        android:text="Balance"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmAccount3" />
+
+    <TextView
+        android:id="@+id/tvmAccount2Balance"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:background="@color/teal_700"
+        android:gravity="start"
+        android:paddingStart="10dp"
+        android:text="Balance"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvmAccount2" />
+
+    <TextView
+        android:id="@+id/tvAccount2Number"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/teal_700"
+        android:gravity="center|left"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmAccount2"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccount1Balance" />
+
+    <TextView
+        android:id="@+id/tvAccount3Number"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/purple_700"
+        android:gravity="center|left"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvmAccount3"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccount2Balance" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

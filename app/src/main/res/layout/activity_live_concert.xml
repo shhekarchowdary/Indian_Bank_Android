@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LiveConcertActivity">
+
+    <TextView
+        android:id="@+id/concertheading"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Book Live Concert"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/concertradiogrp1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/concertheading">
+
+        <RadioButton
+            android:id="@+id/musicradio"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:buttonTint="@color/teal_700"
+            android:text="Music Concert"
+            android:textColor="@color/teal_700"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/familybtn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:buttonTint="@color/teal_700"
+            android:text="Family Concert"
+            android:textColor="@color/teal_700"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/miniconcertbtn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:buttonTint="@color/teal_700"
+            android:text="Mini Concert"
+            android:textColor="@color/teal_700"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/concerttvid"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Enter Date"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nooftcktstv" />
+
+    <TextView
+        android:id="@+id/nooftcktstv"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="No of Tickets"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/liveconcerttickets"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/concertradiogrp1" />
+
+    <EditText
+        android:id="@+id/liveconcerttickets"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/nooftcktstv"
+        app:layout_constraintTop_toBottomOf="@+id/concertradiogrp1" />
+
+    <EditText
+        android:id="@+id/liveconcertdate"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintStart_toEndOf="@+id/concerttvid"
+        app:layout_constraintTop_toBottomOf="@+id/liveconcerttickets" />
+
+    <Button
+        android:id="@+id/liveconcertbtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:background="@color/teal_700"
+        android:backgroundTintMode="add"
+        android:text="Book"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/concertfaretv" />
+
+    <Button
+        android:id="@+id/getfareconcertbtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:text="Get Fare"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/concertspinner" />
+
+    <TextView
+        android:id="@+id/concertfaretv"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/getfareconcertbtn" />
+
+    <TextView
+        android:id="@+id/chooseactconcert"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/teal_700"
+        android:gravity="center"
+        android:text="Choose Account"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/concerttvid" />
+
+    <Spinner
+        android:id="@+id/concertspinner"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseactconcert" />
+</androidx.constraintlayout.widget.ConstraintLayout>
