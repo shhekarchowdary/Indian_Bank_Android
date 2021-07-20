@@ -1,5 +1,6 @@
 package com.arr.indianbankandroid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,6 +12,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -23,6 +30,11 @@ public class LoginActivity extends AppCompatActivity {
     ArrayList<Customer> mCustomers = MainActivity.mCustomers;
     public static String accessCardNumber;
     String from;
+    boolean accessCard;
+
+    FirebaseDatabase rootNode;
+    DatabaseReference referenceCustomers;
+    DatabaseReference referenceAccounts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +45,10 @@ public class LoginActivity extends AppCompatActivity {
         mAccessNumber = findViewById(R.id.etxtPassword);
         mImageView2 = findViewById(R.id.imageView2);
 
+        rootNode = FirebaseDatabase.getInstance();
+        referenceCustomers = rootNode.getReference("Customers");
+        referenceAccounts = rootNode.getReference("Accounts");
+
         from = getIntent().getStringExtra("from");
 
         int res = getResources().getIdentifier("logo2","drawable",getPackageName());
@@ -42,22 +58,33 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String accessNumber = mAccessNumber.getText().toString().trim();
-                boolean accessCard = false;
-                if(!accessNumber.isEmpty()){
-                    for(Customer customer:mCustomers){
+                accessCard = false;
+                if(!accessNumber.isEmpty()) {
+                    Query checkUser = referenceCustomers.orderByChild("accessCardNumber").equalTo(accessNumber);
+                    checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()) {
+                                Intent i = new Intent(getBaseContext(), LoginActivity2.class);
+                                startActivity(i);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Wrong Access Card Number", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    /*for(Customer customer:mCustomers){
                         if(customer.getAccessCardNumber().equals(accessNumber)){
                             accessCardNumber = accessNumber;
                             accessCard = true;
                             break;
                         }
-                    }
-                    if(accessCard){
-                        Intent i = new Intent(getBaseContext(),LoginActivity2.class);
-                        startActivity(i);
-                    }else
-                        Toast.makeText(getApplicationContext(),"Wrong Access Card Number",Toast.LENGTH_SHORT).show();
-                }else
-                    Toast.makeText(getApplicationContext(),"Please Enter Access Card Number",Toast.LENGTH_SHORT).show();
+                     }*/
+                }
             }
         });
     }
