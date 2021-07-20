@@ -20,6 +20,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -28,7 +29,8 @@ public class LoginActivity extends AppCompatActivity {
     ImageView mImageView2;
 
     ArrayList<Customer> mCustomers = MainActivity.mCustomers;
-    public static String accessCardNumber;
+    public static Customer loggedInCustomer;
+    public static String pin;
     String from;
     boolean accessCard;
 
@@ -57,14 +59,30 @@ public class LoginActivity extends AppCompatActivity {
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String accessNumber = mAccessNumber.getText().toString().trim();
+                String cinNumber = Objects.requireNonNull(mAccessNumber.getText()).toString().trim();
                 accessCard = false;
-                if(!accessNumber.isEmpty()) {
-                    Query checkUser = referenceCustomers.orderByChild("accessCardNumber").equalTo(accessNumber);
+                if(!cinNumber.isEmpty()) {
+                    Query checkUser = referenceCustomers.orderByChild("cin").equalTo(cinNumber);
                     checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.exists()) {
+                                String cinDB = snapshot.child(cinNumber).child("cin").getValue(String.class);
+                                String fullNameDB = snapshot.child(cinNumber).child("fullName").getValue(String.class);
+                                String fatherNameDB = snapshot.child(cinNumber).child("fatherName").getValue(String.class);
+                                String dobDB = snapshot.child(cinNumber).child("dob").getValue(String.class);
+                                String occupationDB = snapshot.child(cinNumber).child("occupation").getValue(String.class);
+                                String phoneNumberDB = snapshot.child(cinNumber).child("phoneNumber").getValue(String.class);
+                                String emailIdDB = snapshot.child(cinNumber).child("emailId").getValue(String.class);
+                                String addressDB = snapshot.child(cinNumber).child("address").getValue(String.class);
+                                String cityDB = snapshot.child(cinNumber).child("city").getValue(String.class);
+                                String panNumberDB = snapshot.child(cinNumber).child("panNumber").getValue(String.class);
+                                String aadharNumberDB = snapshot.child(cinNumber).child("aadharNumber").getValue(String.class);
+                                String accessCardNumberDB = snapshot.child(cinNumber).child("accessCardNumber").getValue(String.class);
+                                String pinNumberDB = snapshot.child(cinNumber).child("pinNumber").getValue(String.class);
+                                pin = pinNumberDB;
+                                Customer cus1 = new Customer(cinDB,fullNameDB,fatherNameDB,dobDB,occupationDB,phoneNumberDB,emailIdDB,addressDB,cityDB,panNumberDB,aadharNumberDB,accessCardNumberDB,pinNumberDB);
+                                loggedInCustomer = cus1;
                                 Intent i = new Intent(getBaseContext(), LoginActivity2.class);
                                 startActivity(i);
                             } else {
@@ -77,13 +95,6 @@ public class LoginActivity extends AppCompatActivity {
 
                         }
                     });
-                    /*for(Customer customer:mCustomers){
-                        if(customer.getAccessCardNumber().equals(accessNumber)){
-                            accessCardNumber = accessNumber;
-                            accessCard = true;
-                            break;
-                        }
-                     }*/
                 }
             }
         });

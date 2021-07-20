@@ -16,7 +16,7 @@ public class Customer {
     private String fatherName;
     private String dob;
     private String occupation;
-    private long phoneNumber;
+    private String phoneNumber;
     private String emailId;
     private String address;
     private String city;
@@ -31,7 +31,7 @@ public class Customer {
 
     private ArrayList<Account> accounts = new ArrayList<>();
 
-    public Customer(String cin, String fullName, String fatherName, String dob, String occupation, long phoneNumber, String emailId, String address, String city, String panNumber, String aadharNumber, String accessCardNumber, String pinNumber) {
+    public Customer(String cin, String fullName, String fatherName, String dob, String occupation, String phoneNumber, String emailId, String address, String city, String panNumber, String aadharNumber, String accessCardNumber, String pinNumber) {
         this.cin = cin;
         this.fullName = fullName;
         this.fatherName = fatherName;
@@ -91,11 +91,11 @@ public class Customer {
         this.occupation = occupation;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

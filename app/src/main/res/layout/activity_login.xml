@@ -78,7 +78,6 @@
             android:layout_height="match_parent"
             app:boxStrokeWidthFocused="2dp"
             app:counterEnabled="true"
-            app:counterMaxLength="16"
             app:endIconMode="clear_text"
             app:helperText="*required"
             app:helperTextTextColor="#D50000"
@@ -89,9 +88,8 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/enter_access_card_number"
+                android:hint="@string/entercinNumber"
                 android:inputType="number"
-                android:maxLength="16"
                 android:textColorHint="#040404" />
         </com.google.android.material.textfield.TextInputLayout>
 

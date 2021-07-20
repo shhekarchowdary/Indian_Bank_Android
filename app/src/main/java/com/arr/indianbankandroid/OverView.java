@@ -47,7 +47,7 @@ public class OverView extends AppCompatActivity {
         mCustomerName.setText(loggedInCustomer.getFullName());
         mFatherName.setText(loggedInCustomer.getFatherName());
         mDob.setText(loggedInCustomer.getDob());
-        mMobile.setText(String.valueOf(loggedInCustomer.getPhoneNumber()));
+        mMobile.setText(loggedInCustomer.getPhoneNumber());
         mEmail.setText(loggedInCustomer.getEmailId());
         mAddress.setText(loggedInCustomer.getAddress());
         mAadhar.setText(loggedInCustomer.getAadharNumber());

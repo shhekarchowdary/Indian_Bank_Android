@@ -54,27 +54,27 @@ public class MainActivity extends AppCompatActivity {
         referenceAccounts = rootNode.getReference("Accounts");
 
         Customer cus1 = new Customer("10101", "Soma Sekhar Anaparthi", "Ramarao Anaparthi", "13-01-1996"
-                , "Business", 8989898989L, "shhekar@gmail.com", "katheru, Rajahmundry",
+                , "Business", "8989898989L", "shhekar@gmail.com", "katheru, Rajahmundry",
                 "Rajahmundry", "ASDF45678h", "1234 1234 1234", "1234",
                 "1234");
 
         referenceCustomers.child(cus1.getCin()).setValue(cus1);
 
         mCustomers.add(new Customer("10101", "Soma Sekhar Anaparthi", "Ramarao Anaparthi", "13-01-1996"
-                , "Business", 8989898989L, "shhekar@gmail.com", "katheru, Rajahmundry",
+                , "Business", "8989898989L", "shhekar@gmail.com", "katheru, Rajahmundry",
                 "Rajahmundry", "ASDF45678h", "1234 1234 1234", "1234",
                 "1234"));
 
         mCustomers.add(new Customer("10102", "Manikanta", "Soma sekhar", "13-02-1998"
-                , "Business", 787878787878L, "manikanta@gmail.com", "Morampudi, Rajahmundry",
+                , "Business", "787878787878L", "manikanta@gmail.com", "Morampudi, Rajahmundry",
                 "Rajahmundry", "ASDF45678G", "4567 4567 4567", "2345234523452345",
                 "2345"));
         mCustomers.add(new Customer("10107", "Dhanush", "Jithendra", "13-03-1997"
-                , "Business", 6767676767L, "dhanush@gmail.com", "ponnur, Guntur",
+                , "Business", "6767676767L", "dhanush@gmail.com", "ponnur, Guntur",
                 "Guntur", "ASDF45678Y", "6767 6767 6767 6767", "4545454545454545",
                 "4545"));
         mCustomers.add(new Customer("10110", "Jithendra", "Manikanta", "13-04-1995"
-                , "Electrical Engineer", 99999999999L, "jithandra@gmail.com", "2-34, Ananthapur",
+                , "Electrical Engineer", "99999999999L", "jithandra@gmail.com", "2-34, Ananthapur",
                 "Ananthapur", "ASDF45678U", "8989 8989 8989", "5678567856785678",
                 "5678"));
         for(Customer customer:mCustomers){

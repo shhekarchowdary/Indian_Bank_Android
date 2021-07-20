@@ -6,7 +6,7 @@
     <string name="newUser">New User? </string>
     <string name="accessCardNumber">Access Card Number</string>
     <string name="next">Next</string>
-    <string name="enterAccessCardNumber">Enter Access Card Number</string>
+    <string name="entercinNumber">Customer Identification Number</string>
     <string name="loginLogo">Login Logo</string>
     <string name="loginToIndianBank">Log in to Indian Bank</string>
     <string name="forgotAccess">Forgot Access?</string>
@@ -14,7 +14,6 @@
     <string name="enterPinNumber">Enter Pin Number</string>
     <string name="pinNumber">Pin Number</string>
     <string name="back"><![CDATA[<< Back]]></string>
-    <string name="enter_access_card_number">Enter Access Card Number</string>
     <string name="enter_pin_number">Enter Pin Number</string>
     <string name="Login">Login</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.arr.indianbankandroid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,6 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -23,6 +30,11 @@ public class LoginActivity2 extends AppCompatActivity {
 
     ArrayList<Customer> mCustomers = MainActivity.mCustomers;
     public static Customer loggedInCustomer;
+    private String pin;
+
+    FirebaseDatabase rootNode;
+    DatabaseReference referenceCustomers;
+    DatabaseReference referenceAccounts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +45,10 @@ public class LoginActivity2 extends AppCompatActivity {
         mPinNumber = findViewById(R.id.etxtPassword);
         mImageView3 = findViewById(R.id.imageView3);
 
+        rootNode = FirebaseDatabase.getInstance();
+        referenceCustomers = rootNode.getReference("Customers");
+        referenceAccounts = rootNode.getReference("Accounts");
+
         int res = getResources().getIdentifier("logo2","drawable",getPackageName());
         mImageView3.setImageResource(res);
 
@@ -40,16 +56,12 @@ public class LoginActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loggedInCustomer = null;
-                String accessNumber = LoginActivity.accessCardNumber;
+                pin = LoginActivity.pin;
                 String pinNumber = mPinNumber.getText().toString().trim();
                 if(!pinNumber.isEmpty()){
-                    for(Customer customer:mCustomers){
-                        if(customer.getAccessCardNumber().equals(accessNumber)){
-                            if(customer.getPinNumber().equals(pinNumber)){
-                                loggedInCustomer = customer;
-                                break;
-                            }
-                        }
+                    if(pin.equals(pinNumber)){
+                        loggedInCustomer = LoginActivity.loggedInCustomer;
+                        //break;
                     }
                     if(loggedInCustomer != null){
                         Intent i = new Intent(getBaseContext(),MainMenu.class);
