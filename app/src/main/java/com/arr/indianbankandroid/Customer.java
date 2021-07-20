@@ -160,7 +160,7 @@ public class Customer {
                 if (initialAmount >= 0){
                     SavingsAccount acc = new SavingsAccount(accountNumber, initialAmount);
                     this.referenceAccounts.child(this.getCin()).child(acc.getAccountNo()).setValue(acc);
-                    this.accounts.add(new SavingsAccount(accountNumber, initialAmount));
+                    this.accounts.add(acc);
                     return true;
                 }
                 else{
@@ -170,7 +170,7 @@ public class Customer {
                 if (initialAmount >= 2000){
                     SavingsProAccount acc = new SavingsProAccount(accountNumber, initialAmount);
                     this.referenceAccounts.child(this.getCin()).child(acc.getAccountNo()).setValue(acc);
-                    this.accounts.add(new SavingsAccount(accountNumber, initialAmount));
+                    this.accounts.add(acc);
                     return true;
                 }
                 else{
@@ -178,9 +178,9 @@ public class Customer {
                 }
             case 3:
                 if (initialAmount >= 0){
-                    SalaryAccount acc = new SalaryAccount(accountNumber, initialAmount, companyName, empId);
+                    SalaryAccount acc = new SalaryAccount(accountNumber, initialAmount, empId, companyName);
                     this.referenceAccounts.child(this.getCin()).child(acc.getAccountNo()).setValue(acc);
-                    this.accounts.add(new SalaryAccount(accountNumber, initialAmount, companyName, empId));
+                    this.accounts.add(acc);
                     return true;
                 }
                 else{

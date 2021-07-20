@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button mLogin;
     ImageView mImageView;
+    TextView mGetAccount;
 
     FirebaseDatabase rootNode;
     DatabaseReference referenceCustomers;
@@ -30,8 +31,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mLogin = findViewById(R.id.btnLogin);
+        mLogin = findViewById(R.id.btnLogin2);
         mImageView = findViewById(R.id.imageView);
+        mGetAccount = findViewById(R.id.txtmgetAccountwithUs);
 
         int res = getResources().getIdentifier("logo2","drawable",getPackageName());
         mImageView.setImageResource(res);
@@ -45,6 +47,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        mGetAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getBaseContext(), RegistrationActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     public void fillData() {
@@ -58,43 +69,12 @@ public class MainActivity extends AppCompatActivity {
                 "Rajahmundry", "ASDF45678h", "1234 1234 1234", "1234",
                 "1234");
 
+        cus1.createAccount(1,"101011",1000,"","");
+        cus1.createAccount(2,"101012",10000,"","");
+        cus1.createAccount(3,"101013",5000,"XYZ solutions","XYZ123");
+
         referenceCustomers.child(cus1.getCin()).setValue(cus1);
 
-        mCustomers.add(new Customer("10101", "Soma Sekhar Anaparthi", "Ramarao Anaparthi", "13-01-1996"
-                , "Business", "8989898989L", "shhekar@gmail.com", "katheru, Rajahmundry",
-                "Rajahmundry", "ASDF45678h", "1234 1234 1234", "1234",
-                "1234"));
-
-        mCustomers.add(new Customer("10102", "Manikanta", "Soma sekhar", "13-02-1998"
-                , "Business", "787878787878L", "manikanta@gmail.com", "Morampudi, Rajahmundry",
-                "Rajahmundry", "ASDF45678G", "4567 4567 4567", "2345234523452345",
-                "2345"));
-        mCustomers.add(new Customer("10107", "Dhanush", "Jithendra", "13-03-1997"
-                , "Business", "6767676767L", "dhanush@gmail.com", "ponnur, Guntur",
-                "Guntur", "ASDF45678Y", "6767 6767 6767 6767", "4545454545454545",
-                "4545"));
-        mCustomers.add(new Customer("10110", "Jithendra", "Manikanta", "13-04-1995"
-                , "Electrical Engineer", "99999999999L", "jithandra@gmail.com", "2-34, Ananthapur",
-                "Ananthapur", "ASDF45678U", "8989 8989 8989", "5678567856785678",
-                "5678"));
-        for(Customer customer:mCustomers){
-            if(customer.getCin().equals("10101")){
-                customer.createAccount(1,"101011",1000,"","");
-                customer.createAccount(2,"101012",10000,"","");
-                customer.createAccount(3,"101013",5000,"XYZ solutions","XYZ123");
-            }
-            if(customer.getCin().equals("10102")){
-                customer.createAccount(2,"101021",9000,"","");
-                customer.createAccount(3,"101022",7000,"ABE solutions","ABE123");
-            }
-            if(customer.getCin().equals("10107")){
-                customer.createAccount(1,"101071",3000,"","");
-            }
-            if(customer.getCin().equals("10110")){
-                customer.createAccount(1,"101101",1000,"","");
-                customer.createAccount(2,"101101",10000,"","");
-            }
-        }
     }
 
     @Override

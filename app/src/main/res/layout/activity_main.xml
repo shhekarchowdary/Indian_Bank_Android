@@ -32,15 +32,42 @@
         android:layout_marginTop="200dp"
         android:layout_marginEnd="75dp"
         android:backgroundTint="@color/teal_700"
+        android:drawableStart="@drawable/ic_baseline_login_24"
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:isScrollContainer="false"
         android:text="@string/login"
         android:textAlignment="center"
         android:textAllCaps="false"
+        android:textColor="#FAF8F8"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:icon="@drawable/login"
-        app:iconGravity="textStart"
+        app:iconSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/btnLogin2"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="75dp"
+        android:backgroundTint="@color/teal_700"
+        android:drawableStart="@drawable/ic_baseline_login_24"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:isScrollContainer="false"
+        android:text="@string/login"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FAF8F8"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:icon="@drawable/login"
         app:iconSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
@@ -65,7 +92,8 @@
             android:layout_weight="1"
             android:text="@string/newUser"
             android:textAlignment="textEnd"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtmgetAccountwithUs"
@@ -75,6 +103,7 @@
             android:layout_weight="1"
             android:text="@string/getAccountwithus"
             android:textColor="@color/teal_700"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

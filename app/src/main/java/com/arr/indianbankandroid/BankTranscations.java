@@ -47,7 +47,7 @@ public class BankTranscations extends AppCompatActivity {
         spFromAcc=findViewById(R.id.spFromAcc);
         tvAccount=findViewById(R.id.tvAccount);
         tvBankTransTxt=findViewById(R.id.tvBankTranTxt);
-        cusdata=LoginActivity2.loggedInCustomer;
+        cusdata = LoginActivity2.loggedInCustomer;
         for(Account a:cusdata.getAccounts()){
             accNames.add(a.getType());
         }

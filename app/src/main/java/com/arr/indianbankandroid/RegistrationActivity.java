@@ -24,7 +24,7 @@ public class RegistrationActivity extends AppCompatActivity {
     FirebaseDatabase rootNode;
     DatabaseReference referenceCustomers;
     DatabaseReference referenceCin;
-    String cin;
+    int cin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,10 @@ public class RegistrationActivity extends AppCompatActivity {
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkDetailsEntered();
+
+                if(checkDetailsEntered()){
+                    fillData();
+                }
             }
         });
     }
@@ -56,47 +59,51 @@ public class RegistrationActivity extends AppCompatActivity {
         return TextUtils.isEmpty(str);
     }
 
-    void checkDetailsEntered() {
+    boolean checkDetailsEntered() {
+
+        boolean allGood = true;
+
         if (isEmpty(rName)) {
-            Toast t = Toast.makeText(this, "You must enter full name to register!", Toast.LENGTH_SHORT);
-            t.show();
+            rName.setError("Should Not be Empty");
+            allGood = false;
         }
         if (isEmpty(rFname)) {
-            Toast t = Toast.makeText(this, "You must enter father name to register!", Toast.LENGTH_SHORT);
-            t.show();
+            rFname.setError("Should Not be Empty");
+            allGood = false;
         }
         if (isEmpty(rDob)) {
-            Toast t = Toast.makeText(this, "You must enter Date Of Birth to register!", Toast.LENGTH_SHORT);
-            t.show();
+            rDob.setError("Should Not be Empty");
+            allGood = false;
         }
         if (isEmpty(rOccupation)) {
-            Toast t = Toast.makeText(this, "You must enter Occupation to register!", Toast.LENGTH_SHORT);
-            t.show();
+            rOccupation.setError("Should Not be Empty");
+            allGood = false;
         }
         if (isEmpty(rPnumber)) {
-            Toast t = Toast.makeText(this, "You must enter Phone Number to register!", Toast.LENGTH_SHORT);
-            t.show();
+            rPnumber.setError("Should Not be Empty");
+            allGood = false;
         }
         if (isEmpty(rEmail)) {
-            Toast t = Toast.makeText(this, "You must enter Email to register!", Toast.LENGTH_SHORT);
-            t.show();
+            rEmail.setError("Should Not be Empty");
+            allGood = false;
         }
         if (isEmpty(rAddress)) {
-            Toast t = Toast.makeText(this, "You must enter Address to register!", Toast.LENGTH_SHORT);
-            t.show();
+            rAddress.setError("Should Not be Empty");
+            allGood = false;
         }
         if (isEmpty(rCity)) {
-            Toast t = Toast.makeText(this, "You must enter City to register!", Toast.LENGTH_SHORT);
-            t.show();
+            rCity.setError("Should Not be Empty");
+            allGood = false;
         }
         if (isEmpty(rPan)) {
-            Toast t = Toast.makeText(this, "You must enter Pan Number to register!", Toast.LENGTH_SHORT);
-            t.show();
+            rPan.setError("Should Not be Empty");
+            allGood = false;
         }
         if (isEmpty(rAdhar)) {
-            Toast t = Toast.makeText(this, "You must enter Adhar Number to register!", Toast.LENGTH_SHORT);
-            t.show();
+            rAdhar.setError("Should Not be Empty");
+            allGood = false;
         }
+        return allGood;
     }
 
     public void fillData() {
@@ -118,7 +125,11 @@ public class RegistrationActivity extends AppCompatActivity {
         referenceCin.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                cin = snapshot.getValue(String.class);
+                if(snapshot.exists()){
+                    cin = snapshot.child("cinReference").getValue(Integer.class);
+                    //cin = Integer.parseInt(cinRef);
+                    cin += 2;
+                }
             }
 
             @Override
@@ -127,7 +138,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
-        Customer cus1 = new Customer(cin,fullName,fatherName,DateofBirth,Occupation,555555555,Email,Address,City,Pan,Aadhar,"","");
+        Customer cus1 = new Customer(String.valueOf(cin),fullName,fatherName,DateofBirth,Occupation,PhoneNumber,Email,Address,City,Pan,Aadhar,"","");
         referenceCustomers.child(cus1.getCin()).setValue(cus1);
 
         //Toast.makeText(getBaseContext(),,Toast.LENGTH_LONG).show();

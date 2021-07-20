@@ -82,6 +82,36 @@ public class LoginActivity extends AppCompatActivity {
                                 String pinNumberDB = snapshot.child(cinNumber).child("pinNumber").getValue(String.class);
                                 pin = pinNumberDB;
                                 Customer cus1 = new Customer(cinDB,fullNameDB,fatherNameDB,dobDB,occupationDB,phoneNumberDB,emailIdDB,addressDB,cityDB,panNumberDB,aadharNumberDB,accessCardNumberDB,pinNumberDB);
+                                Query checkAccounts = referenceAccounts.child(cinDB).orderByChild("accountNo");
+                                checkAccounts.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        if(snapshot.exists()){
+                                            int numberOfAccounts = (int) snapshot.getChildrenCount();
+                                            for(DataSnapshot d : snapshot.getChildren()){
+                                                String accountNo = d.child("accountNo").getValue(String.class);
+                                                double currentBalance = d.child("currentBalance").getValue(Double.class);
+                                                String type = d.child("type").getValue(String.class);
+                                                if(type.equals("Savings Account")){
+                                                    cus1.createAccount(1,accountNo,currentBalance,"","");
+                                                }else if(type.equals("Savings Pro Account")){
+                                                    cus1.createAccount(2,accountNo,currentBalance,"","");
+                                                }else{
+                                                    String companyName = d.child("companyName").getValue(String.class);
+                                                    String empId = d.child("empId").getValue(String.class);
+                                                    cus1.createAccount(1,accountNo,currentBalance,companyName,empId);
+                                                }
+                                            }
+                                        }else{
+                                            Toast.makeText(getApplicationContext(),"No Accounts Found",Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
                                 loggedInCustomer = cus1;
                                 Intent i = new Intent(getBaseContext(), LoginActivity2.class);
                                 startActivity(i);
@@ -89,7 +119,6 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Wrong Access Card Number", Toast.LENGTH_SHORT).show();
                             }
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 
