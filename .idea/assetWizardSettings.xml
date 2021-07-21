@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialiconsoutlined/login/outline_login_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/gpp_good/baseline_gpp_good_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,8 +28,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_outline_login_24" />
-                            <entry key="sourceFile" value="/C:\Users\Jeethu\AndroidStudioProjects\Indian_Bank_Android" />
+                            <entry key="color" value="018786" />
+                            <entry key="outputName" value="ic_baseline_gpp_good_24" />
+                            <entry key="sourceFile" value="C:\Users\Jeethu\AndroidStudioProjects\Indian_Bank_Android" />
                           </map>
                         </option>
                       </PersistentState>
