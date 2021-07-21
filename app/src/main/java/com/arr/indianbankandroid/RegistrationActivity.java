@@ -10,20 +10,13 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class RegistrationActivity extends AppCompatActivity {
 
     TextInputEditText rName, rFname, rDob, rOccupation, rPnumber, rEmail, rAddress, rCity, rPan, rAdhar;
     Button regBtn;
 
-    FirebaseDatabase rootNode;
-    DatabaseReference referenceCustomers;
-    DatabaseReference referenceCin;
+
     int cin;
 
     @Override
@@ -108,9 +101,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     public void fillData() {
 
-        rootNode = FirebaseDatabase.getInstance();
-        referenceCustomers = rootNode.getReference("Customers");
-        referenceCin = rootNode.getReference("customerCount");
+
 
         String fullName = rName.getText().toString();
         String fatherName = rFname.getText().toString();
@@ -122,24 +113,11 @@ public class RegistrationActivity extends AppCompatActivity {
         String City = rFname.getText().toString();
         String Pan= rFname.getText().toString();
         String Aadhar = rFname.getText().toString();
-        referenceCin.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    cin = snapshot.child("cinReference").getValue(Integer.class);
-                    //cin = Integer.parseInt(cinRef);
-                    cin += 2;
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
 
         Customer cus1 = new Customer(String.valueOf(cin),fullName,fatherName,DateofBirth,Occupation,PhoneNumber,Email,Address,City,Pan,Aadhar,"","");
-        referenceCustomers.child(cus1.getCin()).setValue(cus1);
+
 
         //Toast.makeText(getBaseContext(),,Toast.LENGTH_LONG).show();
 

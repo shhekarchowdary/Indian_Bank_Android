@@ -13,12 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -32,10 +26,6 @@ public class LoginActivity2 extends AppCompatActivity {
     public static Customer loggedInCustomer;
     private String pin;
 
-    FirebaseDatabase rootNode;
-    DatabaseReference referenceCustomers;
-    DatabaseReference referenceAccounts;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +35,6 @@ public class LoginActivity2 extends AppCompatActivity {
         mPinNumber = findViewById(R.id.etxtPassword);
         mImageView3 = findViewById(R.id.imageView3);
 
-        rootNode = FirebaseDatabase.getInstance();
-        referenceCustomers = rootNode.getReference("Customers");
-        referenceAccounts = rootNode.getReference("Accounts");
 
         int res = getResources().getIdentifier("logo2","drawable",getPackageName());
         mImageView3.setImageResource(res);

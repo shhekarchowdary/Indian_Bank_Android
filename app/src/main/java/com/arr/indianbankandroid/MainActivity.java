@@ -1,5 +1,6 @@
 package com.arr.indianbankandroid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,9 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -20,9 +20,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView mImageView;
     TextView mGetAccount;
 
-    FirebaseDatabase rootNode;
-    DatabaseReference referenceCustomers;
-    DatabaseReference referenceAccounts;
+
 
     public static ArrayList<Customer> mCustomers = new ArrayList<>();
 
@@ -60,9 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void fillData() {
 
-        rootNode = FirebaseDatabase.getInstance();
-        referenceCustomers = rootNode.getReference("Customers");
-        referenceAccounts = rootNode.getReference("Accounts");
 
         Customer cus1 = new Customer("10101", "Soma Sekhar Anaparthi", "Ramarao Anaparthi", "13-01-1996"
                 , "Business", "8989898989L", "shhekar@gmail.com", "katheru, Rajahmundry",
@@ -73,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         cus1.createAccount(2,"101012",10000,"","");
         cus1.createAccount(3,"101013",5000,"XYZ solutions","XYZ123");
 
-        referenceCustomers.child(cus1.getCin()).setValue(cus1);
+
 
     }
 
