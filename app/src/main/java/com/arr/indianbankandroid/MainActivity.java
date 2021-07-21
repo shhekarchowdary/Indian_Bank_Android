@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
     ImageView mImageView;
     TextView mGetAccount;
 
-    FirebaseDatabase rootNode;
+    /*FirebaseDatabase rootNode;
     DatabaseReference referenceCustomers;
-    DatabaseReference referenceAccounts;
+    DatabaseReference referenceAccounts;*/
 
     public static ArrayList<Customer> mCustomers = new ArrayList<>();
 
@@ -62,21 +62,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void fillData() {
-        rootNode = FirebaseDatabase.getInstance();
+        /*rootNode = FirebaseDatabase.getInstance();
         referenceCustomers = rootNode.getReference("Customers");
         Toast.makeText(getBaseContext(),String.valueOf(referenceCustomers),Toast.LENGTH_SHORT).show();
-        referenceAccounts = rootNode.getReference("Accounts");
+        referenceAccounts = rootNode.getReference("Accounts");*/
 
-        Customer cus1 = new Customer("10101", "Soma Sekhar Anaparthi", "Ramarao Anaparthi", "13-01-1996"
+        /*Customer cus1 = new Customer("10101", "Soma Sekhar Anaparthi", "Ramarao Anaparthi", "13-01-1996"
                 , "Business", "8989898989L", "shhekar@gmail.com", "katheru, Rajahmundry",
                 "Rajahmundry", "ASDF45678h", "1234 1234 1234", "1234",
-                "1234");
+                "1234");*/
 
-        cus1.createAccount(1,"101011",1000,"","");
-        cus1.createAccount(2,"101012",10000,"","");
-        cus1.createAccount(3,"101013",5000,"XYZ solutions","XYZ123");
+        //cus1.createAccount(1,"101011",1000,"","");
+        //cus1.createAccount(2,"101012",10000,"","");
+        //cus1.createAccount(3,"101013",5000,"XYZ solutions","XYZ123");
 
-        referenceCustomers.child(cus1.getCin()).setValue(cus1);
+        //referenceCustomers.child(cus1.getCin()).setValue(cus1);
 
     }
 

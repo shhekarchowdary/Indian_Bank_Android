@@ -14,6 +14,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+
 import java.util.ArrayList;
 
 public class TransferToOthersAccountActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -30,7 +34,9 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
     boolean flag = true;
     int ch=0;
 
-
+    FirebaseDatabase rootNode;
+    DatabaseReference referenceCustomers;
+    DatabaseReference referenceAccounts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +53,10 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
         toaAccountCellNum=findViewById(R.id.tvAccountCellNum);
         cusdata=LoginActivity2.loggedInCustomer;
 
-        accName.clear();
+        rootNode = FirebaseDatabase.getInstance();
+        referenceCustomers = rootNode.getReference("Customers");
+        referenceAccounts = rootNode.getReference("Accounts");
+
         for(Account a:cusdata.getAccounts()){
             accName.add(a.getType());
         }
@@ -61,13 +70,14 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
                 ch=1;
                 String g = toaAccountNum.getText().toString();
                 if(!g.isEmpty()){
-                    int accNum =0;
+                    String accNum;
                     try {
-                        accNum = Integer.parseInt(toaAccountNum.getText().toString());
-                        Log.d("Amount",String.valueOf(accNum));
-                        for(Customer cus:mCustomers){
+                        accNum = toaAccountNum.getText().toString();
+                        //Query checkUser = referenceCustomers.orderByChild("cin").equalTo(cinNumber);
+                        //Log.d("Amount",String.valueOf(accNum));
+                        /*for(Customer cus:mCustomers){
                             for(Account accdata:cus.getAccounts()){
-                                if(Integer.parseInt(accdata.getAccountNo())==accNum){
+                                if(accdata.getAccountNo().equals(accNum)){
                                     if(cusdata.getCin()==cus.getCin()){
                                         Toast.makeText(getBaseContext(),"You have entered your account number.Please enter Beneficary account number",Toast.LENGTH_LONG).show();
                                         flag = false;
@@ -83,7 +93,7 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
                         }
                         if(flag){
                             Toast.makeText(getBaseContext(),"Customer not found,Please check the account number",Toast.LENGTH_LONG).show();
-                        }
+                        }*/
                     }
                     catch (NumberFormatException e){
                         Toast.makeText(getBaseContext(),"please enter correct account number",Toast.LENGTH_LONG).show();

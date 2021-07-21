@@ -24,8 +24,19 @@ public class RegistrationActivity extends AppCompatActivity {
     FirebaseDatabase rootNode;
     DatabaseReference referenceCustomers;
     DatabaseReference referenceCin;
+    boolean singleTime = false;
 
     int cin;
+    String fullName;
+    String fatherName;
+    String DateofBirth;
+    String Occupation;
+    String PhoneNumber;
+    String Email;
+    String Address;
+    String City;
+    String Pan;
+    String Aadhar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,16 +120,16 @@ public class RegistrationActivity extends AppCompatActivity {
 
     public void fillData() {
 
-        String fullName = rName.getText().toString();
-        String fatherName = rFname.getText().toString();
-        String DateofBirth = rFname.getText().toString();
-        String Occupation = rFname.getText().toString();
-        String PhoneNumber = rFname.getText().toString();
-        String Email = rFname.getText().toString();
-        String Address = rFname.getText().toString();
-        String City = rFname.getText().toString();
-        String Pan= rFname.getText().toString();
-        String Aadhar = rFname.getText().toString();
+        fullName = rName.getText().toString();
+        fatherName = rFname.getText().toString();
+        DateofBirth = rFname.getText().toString();
+        Occupation = rFname.getText().toString();
+        PhoneNumber = rFname.getText().toString();
+        Email = rFname.getText().toString();
+        Address = rFname.getText().toString();
+        City = rFname.getText().toString();
+        Pan= rFname.getText().toString();
+        Aadhar = rFname.getText().toString();
 
         rootNode = FirebaseDatabase.getInstance();
         referenceCustomers = rootNode.getReference("Customers");
@@ -133,6 +144,9 @@ public class RegistrationActivity extends AppCompatActivity {
                     cin = snapshot.child("cinReference").getValue(Integer.class);
                     //cin = Integer.parseInt(cinRef);
                     cin += 2;
+                    if(!singleTime){
+                        sendData();
+                    }
 
                 }else{
                     Toast.makeText(getBaseContext(),"Cant Fetch CIN Number",Toast.LENGTH_SHORT).show();
@@ -145,11 +159,13 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
+        //Toast.makeText(getBaseContext(),,Toast.LENGTH_LONG).show();
+
+    }
+    public void sendData() {
         Customer cus1 = new Customer(String.valueOf(cin),fullName,fatherName,DateofBirth,Occupation,PhoneNumber,Email,Address,City,Pan,Aadhar,"","");
         referenceCustomers.child(cus1.getCin()).setValue(cus1);
         referenceCin.child("cinReference").setValue(cin);
-
-        //Toast.makeText(getBaseContext(),,Toast.LENGTH_LONG).show();
-
+        singleTime = true;
     }
 }

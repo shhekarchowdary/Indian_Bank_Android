@@ -232,14 +232,19 @@ public class Customer {
 
         if(wAccount != null && dAccount != null){
             if (amount <= wAccount.getCurrentBalance()){
-                wAccount.setCurrentBalance(wAccount.getCurrentBalance() - amount);
+                double change = wAccount.getCurrentBalance() - amount;
+                wAccount.setCurrentBalance(change);
+                //referenceCin.child("cinReference").setValue(cin);
+                this.referenceAccounts.child(this.getCin()).child(wAccount.getAccountNo()).child("currentBalance").setValue(change);
                 check = true;
             }
             else{
                 check = false;
             }
             if(check){
-                dAccount.setCurrentBalance(dAccount.getCurrentBalance() + amount);
+                double change = dAccount.getCurrentBalance() + amount;
+                dAccount.setCurrentBalance(change);
+                this.referenceAccounts.child(this.getCin()).child(dAccount.getAccountNo()).child("currentBalance").setValue(change);
                 check = true;
             }
         }else{
@@ -255,7 +260,9 @@ public class Customer {
         int result;
         Account account = getAccount(from);
         if(amt < account.getCurrentBalance()){
-            account.setCurrentBalance(account.getCurrentBalance() - amt);
+            double change = account.getCurrentBalance() - amt;
+            account.setCurrentBalance(change);
+            this.referenceAccounts.child(this.getCin()).child(account.getAccountNo()).child("currentBalance").setValue(change);
         }else{
             return 0;
         }
