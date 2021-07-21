@@ -4,6 +4,9 @@ import android.util.Log;
 import android.widget.Toast;
 
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -22,7 +25,9 @@ public class Customer {
     private String aadharNumber;
     private String accessCardNumber;
     private String pinNumber;
-
+    FirebaseDatabase rootNode;
+    DatabaseReference referenceCustomers;
+    DatabaseReference referenceAccounts;
 
     private ArrayList<Account> accounts = new ArrayList<>();
 
@@ -40,7 +45,9 @@ public class Customer {
         this.aadharNumber = aadharNumber;
         this.accessCardNumber = accessCardNumber;
         this.pinNumber = pinNumber;
-
+        this.rootNode = FirebaseDatabase.getInstance();
+        this.referenceCustomers = rootNode.getReference("Customers");
+        this.referenceAccounts = rootNode.getReference("Accounts");
 
     }
 
@@ -152,7 +159,7 @@ public class Customer {
             case 1:
                 if (initialAmount >= 0){
                     SavingsAccount acc = new SavingsAccount(accountNumber, initialAmount);
-
+                    this.referenceAccounts.child(this.getCin()).child(acc.getAccountNo()).setValue(acc);
                     this.accounts.add(acc);
                     return true;
                 }
@@ -162,7 +169,7 @@ public class Customer {
             case 2:
                 if (initialAmount >= 2000){
                     SavingsProAccount acc = new SavingsProAccount(accountNumber, initialAmount);
-
+                    this.referenceAccounts.child(this.getCin()).child(acc.getAccountNo()).setValue(acc);
                     this.accounts.add(acc);
                     return true;
                 }
@@ -172,7 +179,7 @@ public class Customer {
             case 3:
                 if (initialAmount >= 0){
                     SalaryAccount acc = new SalaryAccount(accountNumber, initialAmount, empId, companyName);
-
+                    this.referenceAccounts.child(this.getCin()).child(acc.getAccountNo()).setValue(acc);
                     this.accounts.add(acc);
                     return true;
                 }

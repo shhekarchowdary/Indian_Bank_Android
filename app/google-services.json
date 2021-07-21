@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "872732439055",
+    "firebase_url": "https://bank--indian-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "bank--indian",
+    "storage_bucket": "bank--indian.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872732439055:android:d8bca7d0d37bea10ac697a",
+        "android_client_info": {
+          "package_name": "com.arr.indianbankandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872732439055-ip9eo8827hqg542o2vntngmuqi2s6nh9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQZ4NmRO-SYdGT2F-s_paYATSEdBs5CPs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872732439055-ip9eo8827hqg542o2vntngmuqi2s6nh9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
