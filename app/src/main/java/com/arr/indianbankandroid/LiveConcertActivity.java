@@ -15,7 +15,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 public class LiveConcertActivity extends AppCompatActivity {
@@ -127,6 +129,8 @@ public class LiveConcertActivity extends AppCompatActivity {
                 Account account = loggedInCustomer.getAccount(accountSel);
                 if(payment < account.getCurrentBalance()){
                     account.setCurrentBalance(account.getCurrentBalance() - payment);
+                    String date = new SimpleDateFormat("yyyy-MM-DD").format(new Date());
+                    account.getTransferHis().add(new TransactionsHistory(account.getAccountNo(),date,"Debit","For Live Concert",payment));
                     int low = 11111;
                     int high = 99999;
                     transId =  r.nextInt(high - low) + low;

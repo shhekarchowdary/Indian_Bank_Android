@@ -34,7 +34,6 @@ public class BankStatement extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bank_statement);
-        //fillData();
         startDate = findViewById(R.id.etvSDate);
         endDate = findViewById(R.id.etvEDate);
         userAccSpinner = findViewById(R.id.UserAcc);
@@ -66,7 +65,7 @@ public class BankStatement extends AppCompatActivity {
                 try {
                     Date date1 = sdf.parse(sdate);
                     Date date2 = sdf.parse(edate);
-                    /*
+                    if(date1.equals(sdf.format(new Date())) )
                     for (TransactionsHistory th: tempA.getTransferHis()){
                         Date d1 = sdf.parse(th.getTransferDate());
                         if(d1.equals(date1) && d1.equals(date2)){
@@ -75,28 +74,11 @@ public class BankStatement extends AppCompatActivity {
                             tempAdapter.notifyDataSetChanged();
                         }
                     }
-
-                     */
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
             }
         });
-    }
-    public void fillData(){
-        tfh.add(new TransactionsHistory("1","2021-07-22","c","tf",100));
-        tfh.add(new TransactionsHistory("1","2021-07-22","c","tf",100));
-        tfh.add(new TransactionsHistory("1","2021-07-22","c","tf",100));
-        tfh.add(new TransactionsHistory("1","2021-07-22","c","tf",100));
-        tfh.add(new TransactionsHistory("1","2021-07-22","c","tf",100));
-        tfh.add(new TransactionsHistory("1","2021-07-22","c","tf",100));
-        tfh.add(new TransactionsHistory("1","2021-07-22","c","tf",100));
-        tfh.add(new TransactionsHistory("1","2021-07-22","c","tf",100));
-        tfh.add(new TransactionsHistory("1","2021-07-22","c","tf",100));
-        tfh.add(new TransactionsHistory("1","2021-07-22","c","tf",100));
-        tfh.add(new TransactionsHistory("1","2021-07-22","c","tf",100));
-        tfh.add(new TransactionsHistory("1","2021-07-22","c","tf",100));
-
     }
 
     private class spinnerEvents implements AdapterView.OnItemSelectedListener{
