@@ -47,7 +47,7 @@ public class BankTranscations extends AppCompatActivity {
         spFromAcc=findViewById(R.id.spFromAcc);
         tvAccount=findViewById(R.id.tvAccount);
         tvBankTransTxt=findViewById(R.id.tvBankTranTxt);
-        cusdata=LoginActivity2.loggedInCustomer;
+        cusdata = LoginActivity2.loggedInCustomer;
         for(Account a:cusdata.getAccounts()){
             accNames.add(a.getType());
         }
@@ -138,7 +138,6 @@ public class BankTranscations extends AppCompatActivity {
 
 
             if(parent.getId()==R.id.spFromAcc){
-
                 for(Account a:cusdata.getAccounts()){
                     if(a.getType()==accNames.get(position)){
                         if(c==1){
@@ -150,7 +149,7 @@ public class BankTranscations extends AppCompatActivity {
                             }
                             else if(a.getType()=="Savings Pro Account"){
                                 fromaccty=2;
-                                Toast.makeText(getBaseContext(),"fromaccty=2",Toast.LENGTH_LONG).show();
+                                //Toast.makeText(getBaseContext(),"fromaccty=2",Toast.LENGTH_LONG).show();
                             }
                             else if(a.getType()=="Salary Account"){
                                 fromaccty=3;

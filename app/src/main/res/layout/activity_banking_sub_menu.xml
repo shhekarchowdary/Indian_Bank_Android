@@ -2,58 +2,39 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".BankingSubMenu">
 
-    <Button
-        android:id="@+id/btnTMA"
-        android:layout_width="160dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="280dp"
-        android:layout_marginEnd="15dp"
-        android:backgroundTint="@color/teal_700"
-        android:text="Transfer to My Accounts"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnCB"
-        android:layout_width="160dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="280dp"
-        android:backgroundTint="@color/teal_700"
-        android:text="Check Balance"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnTOA"
+    <View
+        android:id="@+id/view4"
+        style="@style/CardView"
         android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="20dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/purple_700"
-        android:text="Transfer to Others"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:background="#D7FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCB" />
+        app:layout_constraintTop_toBottomOf="@+id/tvBankingTxt" />
+
+    <ImageButton
+        android:id="@+id/btnCB"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view4"
+        app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 
     <TextView
         android:id="@+id/tvBankingTxt"
-        android:layout_width="match_parent"
-        android:layout_height="66dp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
         android:background="@color/teal_700"
         android:gravity="center"
         android:text="Banking"
@@ -63,5 +44,203 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtcb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00018786"
+        android:gravity="start"
+        android:text="Check Balance"
+        android:textColor="@color/teal_700"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view4" />
+
+    <Button
+        android:id="@+id/btnsavings"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:drawableTop="@drawable/ic_baseline_account_balance_wallet_24"
+        android:text="Savings"
+        android:textAlignment="viewStart"
+        android:textAllCaps="true"
+        android:textColor="@color/teal_700"
+        android:textColorLink="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toBottomOf="@+id/txtcb" />
+
+    <Button
+        android:id="@+id/btnsavingspro"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/ic_baseline_money_24"
+        android:text=" Savings pro"
+        android:textAllCaps="true"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintEnd_toStartOf="@+id/btnsalary"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toEndOf="@+id/btnsavings"
+        app:layout_constraintTop_toBottomOf="@+id/txtcb" />
+
+    <Button
+        android:id="@+id/btnsalary"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="8dp"
+        android:drawableTop="@drawable/ic_baseline_monetization_on_24"
+        android:text="Salary"
+        android:textAllCaps="true"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCB" />
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:background="#D7FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+    <TextView
+        android:id="@+id/txttransfermyacc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00018786"
+        android:gravity="start"
+        android:text="Transfer to my accounts"
+        android:textAllCaps="false"
+        android:textColor="@color/teal_700"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/view6"
+        app:layout_constraintTop_toTopOf="@+id/view6" />
+
+    <ImageButton
+        android:id="@+id/btnTMA"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/view6"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+    <Button
+        android:id="@+id/btnsavings1"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_account_balance_wallet_24"
+        android:text="Savings"
+        android:textAllCaps="true"
+        android:textColor="@color/teal_700"
+        android:textColorLink="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/view6"
+        app:layout_constraintStart_toStartOf="@+id/view6"
+        app:layout_constraintTop_toBottomOf="@+id/txttransfermyacc" />
+
+    <Button
+        android:id="@+id/btnsavingspro1"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_money_24"
+        android:text="Savings Pro"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view6"
+        app:layout_constraintEnd_toStartOf="@+id/btnsalary1"
+        app:layout_constraintStart_toEndOf="@+id/btnsavings1"
+        app:layout_constraintTop_toBottomOf="@+id/txttransfermyacc" />
+
+    <Button
+        android:id="@+id/btnsalary1"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_monetization_on_24"
+        android:text="Salary"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view6"
+        app:layout_constraintEnd_toEndOf="@+id/view6"
+        app:layout_constraintTop_toBottomOf="@+id/txttransfermyacc" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+    <TextView
+        android:id="@+id/txttransfertoothers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="Transfer to others"
+        android:textColor="@color/teal_700"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@+id/view7"
+        app:layout_constraintTop_toTopOf="@+id/view7" />
+
+    <ImageButton
+        android:id="@+id/btnTOA"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/view7"
+        app:layout_constraintTop_toTopOf="@+id/view7"
+        app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+    <Button
+        android:id="@+id/btntransfernow"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/ic_baseline_gpp_good_24"
+        android:gravity="center"
+        android:text="Transfer Now"
+        android:textAlignment="center"
+        android:textColor="@color/teal_700"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/view7"
+        app:layout_constraintTop_toTopOf="@+id/view7" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

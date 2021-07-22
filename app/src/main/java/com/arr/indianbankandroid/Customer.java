@@ -3,6 +3,10 @@ package com.arr.indianbankandroid;
 import android.util.Log;
 import android.widget.Toast;
 
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -13,7 +17,7 @@ public class Customer {
     private String fatherName;
     private String dob;
     private String occupation;
-    private long phoneNumber;
+    private String phoneNumber;
     private String emailId;
     private String address;
     private String city;
@@ -21,10 +25,13 @@ public class Customer {
     private String aadharNumber;
     private String accessCardNumber;
     private String pinNumber;
+    FirebaseDatabase rootNode;
+    DatabaseReference referenceCustomers;
+    DatabaseReference referenceAccounts;
 
     private ArrayList<Account> accounts = new ArrayList<>();
 
-    public Customer(String cin, String fullName, String fatherName, String dob, String occupation, long phoneNumber, String emailId, String address, String city, String panNumber, String aadharNumber, String accessCardNumber, String pinNumber) {
+    public Customer(String cin, String fullName, String fatherName, String dob, String occupation, String phoneNumber, String emailId, String address, String city, String panNumber, String aadharNumber, String accessCardNumber, String pinNumber) {
         this.cin = cin;
         this.fullName = fullName;
         this.fatherName = fatherName;
@@ -38,6 +45,10 @@ public class Customer {
         this.aadharNumber = aadharNumber;
         this.accessCardNumber = accessCardNumber;
         this.pinNumber = pinNumber;
+        this.rootNode = FirebaseDatabase.getInstance();
+        this.referenceCustomers = rootNode.getReference("Customers");
+        this.referenceAccounts = rootNode.getReference("Accounts");
+
     }
 
     public String getCin() {
@@ -80,11 +91,11 @@ public class Customer {
         this.occupation = occupation;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -147,7 +158,9 @@ public class Customer {
         {
             case 1:
                 if (initialAmount >= 0){
-                    this.accounts.add(new SavingsAccount(accountNumber, initialAmount));
+                    SavingsAccount accSav = new SavingsAccount(accountNumber, initialAmount, this.cin, this.fullName);
+                    this.referenceAccounts.child(accSav.getAccountNo()).setValue(accSav);
+                    this.accounts.add(accSav);
                     return true;
                 }
                 else{
@@ -155,7 +168,9 @@ public class Customer {
                 }
             case 2:
                 if (initialAmount >= 2000){
-                    this.accounts.add(new SavingsProAccount(accountNumber, initialAmount));
+                    SavingsProAccount accPro = new SavingsProAccount(accountNumber, initialAmount, this.cin, this.fullName);
+                    this.referenceAccounts.child(accPro.getAccountNo()).setValue(accPro);
+                    this.accounts.add(accPro);
                     return true;
                 }
                 else{
@@ -163,7 +178,9 @@ public class Customer {
                 }
             case 3:
                 if (initialAmount >= 0){
-                    this.accounts.add(new SalaryAccount(accountNumber, initialAmount, companyName, empId));
+                    SalaryAccount acc = new SalaryAccount(accountNumber, initialAmount, this.cin, this.fullName, empId, companyName);
+                    this.referenceAccounts.child(acc.getAccountNo()).setValue(acc);
+                    this.accounts.add(acc);
                     return true;
                 }
                 else{
@@ -215,14 +232,19 @@ public class Customer {
 
         if(wAccount != null && dAccount != null){
             if (amount <= wAccount.getCurrentBalance()){
-                wAccount.setCurrentBalance(wAccount.getCurrentBalance() - amount);
+                double change = wAccount.getCurrentBalance() - amount;
+                wAccount.setCurrentBalance(change);
+                //referenceCin.child("cinReference").setValue(cin);
+                this.referenceAccounts.child(wAccount.getAccountNo()).child("currentBalance").setValue(change);
                 check = true;
             }
             else{
                 check = false;
             }
             if(check){
-                dAccount.setCurrentBalance(dAccount.getCurrentBalance() + amount);
+                double change = dAccount.getCurrentBalance() + amount;
+                dAccount.setCurrentBalance(change);
+                this.referenceAccounts.child(dAccount.getAccountNo()).child("currentBalance").setValue(change);
                 check = true;
             }
         }else{
@@ -238,7 +260,9 @@ public class Customer {
         int result;
         Account account = getAccount(from);
         if(amt < account.getCurrentBalance()){
-            account.setCurrentBalance(account.getCurrentBalance() - amt);
+            double change = account.getCurrentBalance() - amt;
+            account.setCurrentBalance(change);
+            this.referenceAccounts.child(this.getCin()).child(account.getAccountNo()).child("currentBalance").setValue(change);
         }else{
             return 0;
         }

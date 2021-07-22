@@ -27,7 +27,7 @@ public class MainMenu extends AppCompatActivity {
         bookings=findViewById(R.id.btnBookings);
         logout=findViewById(R.id.btnLogOut);
 
-        cusdata=LoginActivity2.loggedInCustomer;
+        cusdata = LoginActivity2.loggedInCustomer;
         Log.d("logincheck",cusdata.getFullName());
         cusName.setText("Welcome "+cusdata.getFullName().toString());
 

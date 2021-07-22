@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrationActivity">
+
+    <TextView
+        android:id="@+id/reghead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="124dp"
+        android:text="Registration"
+        android:textColor="#45B6AC"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reghead">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fullName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Full Name"
+                app:endIconDrawable="@drawable/ic_baseline_cancel_24"
+                app:startIconDrawable="@drawable/ic_baseline_person_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textFullName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fatherName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Father Name"
+                app:endIconDrawable="@drawable/ic_baseline_cancel_24"
+                app:startIconDrawable="@drawable/ic_baseline_person_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textFatherName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dateOfBirth"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Date Of Birth"
+                app:endIconDrawable="@drawable/ic_baseline_cancel_24"
+                app:startIconDrawable="@drawable/ic_baseline_date_range_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textDateOfBirth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/occupation"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Occupation"
+                app:endIconDrawable="@drawable/ic_baseline_cancel_24"
+                app:startIconDrawable="@drawable/ic_baseline_work_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textOccupation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phoneNumber"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Phone Number"
+                app:endIconDrawable="@drawable/ic_baseline_cancel_24"
+                app:startIconDrawable="@drawable/ic_baseline_phone_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textPhoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Email"
+                app:endIconDrawable="@drawable/ic_baseline_cancel_24"
+                app:startIconDrawable="@drawable/ic_baseline_email_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/address"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Address"
+                app:endIconDrawable="@drawable/ic_baseline_cancel_24"
+                app:startIconDrawable="@drawable/ic_baseline_home_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/city"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="City"
+                app:endIconDrawable="@drawable/ic_baseline_cancel_24"
+                app:startIconDrawable="@drawable/ic_baseline_location_city_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/panNumber"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Pan Number"
+                app:endIconDrawable="@drawable/ic_baseline_cancel_24"
+                app:startIconDrawable="@drawable/ic_baseline_card_membership_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textPanNumber"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="375dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/aadharNumber"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Aadhar Number"
+                app:endIconDrawable="@drawable/ic_baseline_cancel_24"
+                app:startIconDrawable="@drawable/ic_baseline_card_membership_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textAadharNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/RegisterBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register"
+                android:textColor="#538883" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,7 @@
 package com.arr.indianbankandroid;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,23 +16,38 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class TransferToOthersAccountActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    TextView toaAccountHolderName,toaAccountCellNum;
+    TextView toaAccountHolderName;
     EditText toaAmount,toaAccountNum;
     Button toafetch,toaTransfer;
     Spinner sptoaAccounts;
     Customer cusdata;
     Customer tempCus;
+    String fetchedCustomerCin;
+    String fetchedAccountNo;
+    String fetchedCustomerName = "Hai";
+    double fetchedAccountBalance;
     ArrayList<Customer> mCustomers=MainActivity.mCustomers;
     ArrayList<String> accName = new ArrayList<>();
     public static Account tempacc,toTempAcc;
     public static  int ts=0;
-    boolean flag = true;
+    boolean flag = false;
     int ch=0;
 
-
+    boolean singleTime = false;
+    FirebaseDatabase rootNode;
+    DatabaseReference referenceCustomers;
+    DatabaseReference referenceAccounts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +61,12 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
         toafetch = findViewById(R.id.btnFetchAccount);
         toaTransfer = findViewById(R.id.btnTOATransfer);
         toaAccountHolderName=findViewById(R.id.tvAccountHolderName);
-        toaAccountCellNum=findViewById(R.id.tvAccountCellNum);
         cusdata=LoginActivity2.loggedInCustomer;
 
-        accName.clear();
+        rootNode = FirebaseDatabase.getInstance();
+        referenceCustomers = rootNode.getReference("Customers");
+        referenceAccounts = rootNode.getReference("Accounts");
+
         for(Account a:cusdata.getAccounts()){
             accName.add(a.getType());
         }
@@ -58,42 +77,48 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
         toafetch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ch=1;
+                ch = 1;
                 String g = toaAccountNum.getText().toString();
-                if(!g.isEmpty()){
-                    int accNum =0;
-                    try {
-                        accNum = Integer.parseInt(toaAccountNum.getText().toString());
-                        Log.d("Amount",String.valueOf(accNum));
-                        for(Customer cus:mCustomers){
-                            for(Account accdata:cus.getAccounts()){
-                                if(Integer.parseInt(accdata.getAccountNo())==accNum){
-                                    if(cusdata.getCin()==cus.getCin()){
-                                        Toast.makeText(getBaseContext(),"You have entered your account number.Please enter Beneficary account number",Toast.LENGTH_LONG).show();
-                                        flag = false;
-                                    }
-                                    else {
-                                        toTempAcc = accdata;
-                                        toaAccountHolderName.setText("Beneficiary Name: "+cus.getFullName().toString());
-                                        toaAccountCellNum.setText("Phone Number: "+String.valueOf(cus.getPhoneNumber()).toString());
-                                        flag = false;
+                if (!g.isEmpty()) {
+                    fetchedCustomerName = null;
+                    toaAccountHolderName.setText("");
+                    Query checkAccounts = referenceAccounts.orderByChild("accountNo").equalTo(g);
+                    checkAccounts.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if(snapshot.exists()){
+                                int accs = 0;
+                                for(DataSnapshot d: snapshot.getChildren()){
+                                    if(d.child("accountNo").getValue(String.class).equals(g)){
+                                        accs = (int) d.getChildrenCount();
+                                        fetchedAccountNo = d.child("accountNo").getValue(String.class);
+                                        fetchedCustomerName = d.child("customerName").getValue(String.class);
+                                        fetchedCustomerCin = d.child("cin").getValue(String.class);
+                                        fetchedAccountBalance = d.child("currentBalance").getValue(Double.class);
+                                        toaAccountHolderName.setText("Beneficiary Name: "+fetchedCustomerName);
+                                        Log.d("after Query",String.valueOf(accs));
+                                        break;
                                     }
                                 }
+                                if(accs == 0){
+                                    Toast.makeText(getApplicationContext(), "No Accounts Found", Toast.LENGTH_SHORT).show();
+                                    toaAccountHolderName.setText("");
+                                }
+                            }else{
+                                Log.d("No Account Foung","");
+                                Toast.makeText(getApplicationContext(), "No Accounts Found", Toast.LENGTH_SHORT).show();
                             }
                         }
-                        if(flag){
-                            Toast.makeText(getBaseContext(),"Customer not found,Please check the account number",Toast.LENGTH_LONG).show();
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
                         }
-                    }
-                    catch (NumberFormatException e){
-                        Toast.makeText(getBaseContext(),"please enter correct account number",Toast.LENGTH_LONG).show();
-                    }
+                    });
 
+                } else {
+                    Toast.makeText(getBaseContext(), "please enter account number to fetch details", Toast.LENGTH_LONG).show();
                 }
-                else{
-                    Toast.makeText(getBaseContext(),"please enter account number to fetch details",Toast.LENGTH_LONG).show();
-                }
-
             }
         });
 
@@ -102,15 +127,16 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
             public void onClick(View v) {
                 if(ch==1) {
                     if (!(toaAmount.getText().toString()).isEmpty() || !(toaAccountNum.getText().toString()).isEmpty()) {
-                        if (flag == false) {
+                        if (fetchedAccountNo != null) {
                             double am = 0;
                             try {
                                 am = Double.parseDouble(toaAmount.getText().toString());
-                                if(am<=tempacc.getCurrentBalance()) {
+                                if(am <= tempacc.getCurrentBalance()) {
                                     double value = tempacc.getCurrentBalance() - am;
                                     tempacc.setCurrentBalance(value);
-                                    double transferValue = toTempAcc.getCurrentBalance() + am;
-                                    toTempAcc.setCurrentBalance(transferValue);
+                                    referenceAccounts.child(tempacc.getAccountNo()).child("currentBalance").setValue(value);
+                                    double transferValue = fetchedAccountBalance + am;
+                                    referenceAccounts.child(fetchedAccountNo).child("currentBalance").setValue(transferValue);
                                     Intent in = new Intent(getBaseContext(), Transcation_Success.class);
                                     startActivity(in);
                                     ts = 1;
@@ -138,7 +164,6 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
         for(Account acc:cusdata.getAccounts()){
             if(acc.getType()== accName.get(position)){
                 tempacc = acc;

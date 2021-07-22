@@ -1,5 +1,6 @@
 package com.arr.indianbankandroid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -23,6 +24,7 @@ public class LoginActivity2 extends AppCompatActivity {
 
     ArrayList<Customer> mCustomers = MainActivity.mCustomers;
     public static Customer loggedInCustomer;
+    private String pin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class LoginActivity2 extends AppCompatActivity {
         mPinNumber = findViewById(R.id.etxtPassword);
         mImageView3 = findViewById(R.id.imageView3);
 
+
         int res = getResources().getIdentifier("logo2","drawable",getPackageName());
         mImageView3.setImageResource(res);
 
@@ -40,16 +43,12 @@ public class LoginActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loggedInCustomer = null;
-                String accessNumber = LoginActivity.accessCardNumber;
+                pin = LoginActivity.pin;
                 String pinNumber = mPinNumber.getText().toString().trim();
                 if(!pinNumber.isEmpty()){
-                    for(Customer customer:mCustomers){
-                        if(customer.getAccessCardNumber().equals(accessNumber)){
-                            if(customer.getPinNumber().equals(pinNumber)){
-                                loggedInCustomer = customer;
-                                break;
-                            }
-                        }
+                    if(pin.equals(pinNumber)){
+                        loggedInCustomer = LoginActivity.loggedInCustomer;
+                        //break;
                     }
                     if(loggedInCustomer != null){
                         Intent i = new Intent(getBaseContext(),MainMenu.class);
