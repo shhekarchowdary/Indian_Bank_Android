@@ -231,16 +231,17 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="44dp"
         android:drawableTop="@drawable/ic_baseline_gpp_good_24"
         android:gravity="center"
         android:text="Transfer Now"
         android:textAlignment="center"
         android:textColor="@color/teal_700"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view7"
+        app:layout_constraintEnd_toEndOf="@+id/view7"
         app:layout_constraintStart_toStartOf="@+id/view7"
-        app:layout_constraintTop_toTopOf="@+id/view7" />
+        app:layout_constraintTop_toTopOf="@+id/view7"
+        app:layout_constraintVertical_bias="0.546" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

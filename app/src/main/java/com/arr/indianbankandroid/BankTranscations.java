@@ -31,6 +31,10 @@ public class BankTranscations extends AppCompatActivity {
     double trfToAcc=0;
     public static Account fromaccdata;
 
+    int spinnerselected = BankingSubMenu.selected;
+    int trspinnerselected = BankingSubMenu.trselected;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,10 +61,10 @@ public class BankTranscations extends AppCompatActivity {
         spToAcc.setAdapter(a);
         spFromAcc.setOnItemSelectedListener(new spinnerEvents());
         spToAcc.setOnItemSelectedListener(new spinnerEvents());
-
         c= BankingSubMenu.c;
         tm= BankingSubMenu.tm;
-
+        spFromAcc.setSelection(spinnerselected);
+        spToAcc.setSelection(trspinnerselected);
         if(c==1){
             //setTitle is used to change title of the activity.
             setTitle("Check Balance");
