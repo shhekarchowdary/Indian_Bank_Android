@@ -262,7 +262,7 @@ public class Customer {
         if(amt < account.getCurrentBalance()){
             double change = account.getCurrentBalance() - amt;
             account.setCurrentBalance(change);
-            this.referenceAccounts.child(this.getCin()).child(account.getAccountNo()).child("currentBalance").setValue(change);
+            this.referenceAccounts.child(account.getAccountNo()).child("currentBalance").setValue(change);
         }else{
             return 0;
         }

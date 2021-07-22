@@ -31,7 +31,7 @@ public class MainMenu extends AppCompatActivity {
 
         cusdata = LoginActivity2.loggedInCustomer;
         Log.d("logincheck",cusdata.getFullName());
-        cusName.setText("Welcome "+cusdata.getFullName().toString());
+        //cusName.setText("Welcome "+cusdata.getFullName().toString());
 
 
         banking.setOnClickListener(new View.OnClickListener() {
