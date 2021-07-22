@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainMenu extends AppCompatActivity {
-    Button banking,paybills,cusOverView,bookings,logout;
+    ImageButton banking,paybills,bookings,logout;
+    Button cusOverView;
     TextView cusName;
     Customer cusdata;
 
@@ -20,12 +22,12 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
         //setTitle is used to change title of the activity.
         setTitle("Main Menu");
-        cusName=findViewById(R.id.tvCusName);
+       // cusName=findViewById(R.id.tvCusName);
         banking=findViewById(R.id.btnBanking);
-        paybills=findViewById(R.id.btnPayBills);
-        cusOverView=findViewById(R.id.btnCusOverview);
+        paybills=findViewById(R.id.btnTMA);
+        cusOverView=findViewById(R.id.btnCustomerOverview);
         bookings=findViewById(R.id.btnBookings);
-        logout=findViewById(R.id.btnLogOut);
+        logout=findViewById(R.id.btnLogout);
 
         cusdata = LoginActivity2.loggedInCustomer;
         Log.d("logincheck",cusdata.getFullName());
