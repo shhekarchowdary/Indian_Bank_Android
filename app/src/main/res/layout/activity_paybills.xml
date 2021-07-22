@@ -7,79 +7,6 @@
     android:textAlignment="center"
     tools:context=".PaybillsActivity">
 
-    <Button
-        android:id="@+id/hydrosubmenubtn"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/teal_700"
-        android:text="Hydro Bill"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/watersubmenubtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/watersubmenubtn"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="22dp"
-        android:text="Water Bill"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/gassubmenubtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/gassubmenubtn"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="23dp"
-        android:backgroundTint="@color/teal_700"
-        android:text="Gas Bill"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/phonesubmenubtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/phonesubmenubtn"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="17dp"
-        android:text="Phone Bill"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/broadbandsubmenubtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/broadbandsubmenubtn"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="220dp"
-        android:backgroundTint="@color/teal_700"
-        android:text="Broad Band Bill"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/paybillsheading"
         android:layout_width="0dp"
@@ -94,4 +21,112 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="385dp"
+        android:layout_height="306dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paybillsheading" />
+
+    <Button
+        android:id="@+id/hydrosubmenubtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="238dp"
+        android:layout_marginEnd="271dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="30dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_electrical_services_24"
+        android:text="HYDRO BILL"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3" />
+
+    <Button
+        android:id="@+id/watersubmenubtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="232dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginStart="271dp"
+        android:layout_marginTop="30dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_water_damage_24"
+        android:text="WATER BILL"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/gassubmenubtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="130dp"
+        android:layout_marginEnd="271dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="146dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_local_gas_station_24"
+        android:text="GAS BILL"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3" />
+
+    <Button
+        android:id="@+id/phonesubmenubtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="130dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginStart="271dp"
+        android:layout_marginTop="146dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_phone_android_24"
+        android:text="PHONE BILL"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3" />
+
+    <Button
+        android:id="@+id/broadbandsubmenubtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="132dp"
+        android:layout_height="75dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_signal_wifi_statusbar_connected_no_internet_4_24"
+        android:text="BROAD BAND BILL"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        app:layout_constraintVertical_bias="0.962" />
 </androidx.constraintlayout.widget.ConstraintLayout>

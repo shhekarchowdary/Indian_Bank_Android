@@ -11,7 +11,11 @@ import android.widget.ImageButton;
 
 public class BankingSubMenu extends AppCompatActivity {
     ImageButton cb,tma,toa;
+    Button savingsbtn,savingsprobtn,salarybtn,trsavingsbtn,trsavingsprobtn,trsalarybtn;
     public static int c=0,tm=0;
+    public static int selected = 0;
+    public static int trselected = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +28,77 @@ public class BankingSubMenu extends AppCompatActivity {
         cb=findViewById(R.id.btnCB);
         tma=findViewById(R.id.btnTMA);
         toa=findViewById(R.id.btnTOA);
+        savingsbtn = findViewById(R.id.btnsavings);
+        savingsprobtn = findViewById(R.id.btnsavingspro);
+        salarybtn = findViewById(R.id.btnsalary);
+        trsavingsbtn = findViewById(R.id.btnsavings1);
+        trsavingsprobtn = findViewById(R.id.btnsavingspro1);
+        trsalarybtn = findViewById(R.id.btnsalary1);
+
+
         cb.setOnClickListener(new onclick());
         tma.setOnClickListener(new onclick());
         toa.setOnClickListener(new onclick());
 
+        savingsbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selected = 0;
+                Intent myIntent = new Intent(getBaseContext(), BankTranscations.class);
+                startActivity(myIntent);
+
+            }
+        });
+
+        savingsprobtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selected = 1;
+                Intent myIntent = new Intent(getBaseContext(), BankTranscations.class);
+                startActivity(myIntent);
+
+            }
+        });
+
+        salarybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selected = 2;
+                Intent myIntent = new Intent(getBaseContext(), BankTranscations.class);
+                startActivity(myIntent);
+
+            }
+        });
+
+        trsavingsbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                trselected = 0;
+                Intent myIntent = new Intent(getBaseContext(), BankTranscations.class);
+                startActivity(myIntent);
+
+            }
+        });
+
+        trsavingsprobtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                trselected = 1;
+                Intent myIntent = new Intent(getBaseContext(), BankTranscations.class);
+                startActivity(myIntent);
+
+            }
+        });
+
+        trsalarybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                trselected = 2;
+                Intent myIntent = new Intent(getBaseContext(), BankTranscations.class);
+                startActivity(myIntent);
+
+            }
+        });
     }
     private class onclick implements View.OnClickListener{
 
@@ -56,6 +127,8 @@ public class BankingSubMenu extends AppCompatActivity {
             }
         }
     }
+
+
 
 
 }

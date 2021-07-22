@@ -2,97 +2,363 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout11"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainMenu">
+    android:orientation="vertical"
+    tools:context=".BankingSubMenu">
 
-    <Button
-        android:id="@+id/btnCusOverview"
-        android:layout_width="160dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="39dp"
+    <View
+        android:id="@+id/view4"
+        style="@style/CardView"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="11dp"
-        android:text="Customer OverView"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/btnBookings"
+        android:layout_marginEnd="10dp"
+        android:background="#D7FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBanking" />
+        app:layout_constraintTop_toBottomOf="@+id/tvBankingTxt" />
 
-    <Button
-        android:id="@+id/btnBookings"
-        android:layout_width="160dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="39dp"
-        android:backgroundTint="@color/teal_700"
-        android:backgroundTintMode="add"
-        android:text="Bookings"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnCusOverview"
-        app:layout_constraintTop_toBottomOf="@+id/btnPayBills" />
-
-    <Button
-        android:id="@+id/btnPayBills"
-        android:layout_width="160dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginEnd="39dp"
-        android:text="Pay Bills"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnBanking"
-        app:layout_constraintTop_toBottomOf="@+id/tvCusName" />
-
-    <Button
+    <ImageButton
         android:id="@+id/btnBanking"
-        android:layout_width="160dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginEnd="11dp"
-        android:backgroundTint="@color/teal_700"
-        android:backgroundTintMode="add"
-        android:text="Banking"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/btnPayBills"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCusName" />
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view4"
+        app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 
     <TextView
-        android:id="@+id/tvCusName"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="100dp"
+        android:id="@+id/tvBankingTxt"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@color/teal_700"
         android:gravity="center"
-        android:textColor="@color/teal_700"
-        android:textSize="18sp"
+        android:text="Welcome to Indian Bank"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnLogOut"
+    <TextView
+        android:id="@+id/txtcb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp"
-        android:text="Log Out"
-        android:textAllCaps="false"
+        android:background="#00018786"
+        android:gravity="start"
+        android:text="Banking"
+        android:textColor="@color/teal_700"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view4" />
+
+    <Button
+        android:id="@+id/btnCheckBalance"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:drawableTop="@drawable/ic_baseline_account_balance_wallet_24"
+        android:text="Check Balance"
+        android:textAlignment="viewStart"
+        android:textAllCaps="true"
+        android:textColor="@color/teal_700"
+        android:textColorLink="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toBottomOf="@+id/txtcb" />
+
+    <Button
+        android:id="@+id/btnTransfer"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:drawableTop="@drawable/ic_baseline_money_24"
+        android:text="Transfer"
+        android:textAllCaps="true"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintEnd_toStartOf="@+id/btnOthers"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toEndOf="@+id/btnCheckBalance"
+        app:layout_constraintTop_toBottomOf="@+id/txtcb" />
+
+    <Button
+        android:id="@+id/btnOthers"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="16dp"
+        android:drawableTop="@drawable/ic_baseline_monetization_on_24"
+        android:text="Others"
+        android:textAllCaps="true"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/btnTransfer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/btnTransfer" />
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="#D7FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+    <TextView
+        android:id="@+id/txttransfermyacc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00018786"
+        android:gravity="start"
+        android:text="Pay Bills"
+        android:textAllCaps="false"
+        android:textColor="@color/teal_700"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/view6"
+        app:layout_constraintTop_toTopOf="@+id/view6" />
+
+    <ImageButton
+        android:id="@+id/btnTMA"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/view6"
+        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+    <Button
+        android:id="@+id/btnHydroBill"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_payment_24"
+        android:text="Hydro Bill"
+        android:textAllCaps="true"
+        android:textColor="@color/teal_700"
+        android:textColorLink="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/view6"
+        app:layout_constraintTop_toBottomOf="@+id/txttransfermyacc" />
+
+    <Button
+        android:id="@+id/btnTravel"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="68dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_book_online_24"
+        android:text="Travel"
+        android:textAllCaps="true"
+        android:textColor="@color/teal_700"
+        android:textColorLink="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view7"
+        app:layout_constraintTop_toTopOf="@+id/view7" />
+
+    <Button
+        android:id="@+id/btnLiveConcert"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_book_online_24"
+        android:text="Live Concert"
+        android:textAllCaps="true"
+        android:textColor="@color/teal_700"
+        android:textColorLink="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/view7"
+        app:layout_constraintEnd_toEndOf="@+id/view7"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view7"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <Button
+        android:id="@+id/btnMovieTickets"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_book_online_24"
+        android:text="Movie Tickets"
+        android:textAllCaps="true"
+        android:textColor="@color/teal_700"
+        android:textColorLink="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/btnTravel"
+        app:layout_constraintEnd_toStartOf="@+id/btnLiveConcert" />
+
+    <Button
+        android:id="@+id/btnPhoneBill"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_payment_24"
+        android:text="Phone Bill"
+        android:textAllCaps="true"
+        android:textColor="@color/teal_700"
+        android:textColorLink="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/view6"
+        app:layout_constraintStart_toStartOf="@+id/view6"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+
+    <Button
+        android:id="@+id/btnWaterBill"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_payment_24"
+        android:text="Water Bill"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/btnGasBill"
+        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintStart_toEndOf="@+id/btnHydroBill"
+        app:layout_constraintTop_toBottomOf="@+id/txttransfermyacc"
+        app:layout_constraintVertical_bias="0.512" />
+
+    <Button
+        android:id="@+id/btnBroadbandBill"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_payment_24"
+        android:text="Broadband Bill"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.216"
+        app:layout_constraintStart_toEndOf="@+id/btnPhoneBill"
+        app:layout_constraintTop_toBottomOf="@+id/btnWaterBill"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <Button
+        android:id="@+id/btnGasBill"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ic_baseline_payment_24"
+        android:text="Gas Bill"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="@+id/view6"
+        app:layout_constraintTop_toBottomOf="@+id/txttransfermyacc"
+        app:layout_constraintVertical_bias="0.512" />
+
+    <TextView
+        android:id="@+id/txttransfertoothers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="Bookings"
+
+        android:textColor="@color/teal_700"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/view7"
+        app:layout_constraintTop_toTopOf="@+id/view7" />
+
+    <ImageButton
+        android:id="@+id/btnBookings"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/view7"
+        app:layout_constraintTop_toTopOf="@+id/view7"
+        app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
+        android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="205dp" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="354dp" />
+
+    <Button
+        android:id="@+id/btnCustomerOverview"
+        android:layout_width="250dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="88dp"
+        android:drawableStart="@drawable/ic_baseline_info_24"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:text="Customer Overview"
+        android:textColor="#30615D"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view7" />
+
+    <ImageButton
+        android:id="@+id/btnLogout"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_exit_to_app_24" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
