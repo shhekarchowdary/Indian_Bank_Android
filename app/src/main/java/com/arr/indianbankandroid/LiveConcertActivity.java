@@ -15,6 +15,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,6 +38,10 @@ public class LiveConcertActivity extends AppCompatActivity {
     double payment;
     int transId,accountSel;
 
+    FirebaseDatabase rootNode;
+    DatabaseReference referenceCustomers;
+    DatabaseReference referenceAccounts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +58,10 @@ public class LiveConcertActivity extends AppCompatActivity {
         getfareconcert = findViewById(R.id.getfareconcertbtn);
         concertspinner = findViewById(R.id.concertspinner);
         fareconcerttv = findViewById(R.id.concertfaretv);
+
+        rootNode = FirebaseDatabase.getInstance();
+        referenceCustomers = rootNode.getReference("Customers");
+        referenceAccounts = rootNode.getReference("Accounts");
 
         mAccounts.clear();
         loggedInCustomer = LoginActivity2.loggedInCustomer;
@@ -128,8 +139,9 @@ public class LiveConcertActivity extends AppCompatActivity {
                 Random r = new Random();
                 Account account = loggedInCustomer.getAccount(accountSel);
                 if(payment < account.getCurrentBalance()){
-                    account.setCurrentBalance(account.getCurrentBalance() - payment);
-                    String date = new SimpleDateFormat("yyyy-MM-DD").format(new Date());
+                    double value = account.getCurrentBalance() - payment;
+                    account.setCurrentBalance(value);
+                    referenceAccounts.child(account.getAccountNo()).child("currentBalance").setValue(value);                    String date = new SimpleDateFormat("yyyy-MM-DD").format(new Date());
                     account.getTransferHis().add(new TransactionsHistory(account.getAccountNo(),date,"Debit","For Live Concert",payment));
                     int low = 11111;
                     int high = 99999;

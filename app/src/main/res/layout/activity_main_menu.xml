@@ -25,7 +25,7 @@
     <ImageButton
         android:id="@+id/btnBanking"
         android:layout_width="wrap_content"
-        android:layout_height="47dp"
+        android:layout_height="50dp"
         android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/view4"
         app:layout_constraintTop_toTopOf="@+id/view4"
@@ -142,7 +142,7 @@
     <ImageButton
         android:id="@+id/btnTMA"
         android:layout_width="wrap_content"
-        android:layout_height="47dp"
+        android:layout_height="50dp"
         android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/view6"
         app:layout_constraintTop_toTopOf="@+id/view6"
@@ -257,8 +257,8 @@
     <ImageButton
         android:id="@+id/btnBookings"
         android:layout_width="wrap_content"
-        android:layout_height="47dp"
-        android:background="#FFFFFF"
+        android:layout_height="50dp"
+        android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/view7"
         app:layout_constraintTop_toTopOf="@+id/view7"
         app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
