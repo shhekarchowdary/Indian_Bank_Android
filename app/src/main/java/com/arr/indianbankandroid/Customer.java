@@ -158,9 +158,9 @@ public class Customer {
         {
             case 1:
                 if (initialAmount >= 0){
-                    SavingsAccount acc = new SavingsAccount(accountNumber, initialAmount);
-                    this.referenceAccounts.child(this.getCin()).child(acc.getAccountNo()).setValue(acc);
-                    this.accounts.add(acc);
+                    SavingsAccount accSav = new SavingsAccount(accountNumber, initialAmount, this.cin, this.fullName);
+                    this.referenceAccounts.child(accSav.getAccountNo()).setValue(accSav);
+                    this.accounts.add(accSav);
                     return true;
                 }
                 else{
@@ -168,9 +168,9 @@ public class Customer {
                 }
             case 2:
                 if (initialAmount >= 2000){
-                    SavingsProAccount acc = new SavingsProAccount(accountNumber, initialAmount);
-                    this.referenceAccounts.child(this.getCin()).child(acc.getAccountNo()).setValue(acc);
-                    this.accounts.add(acc);
+                    SavingsProAccount accPro = new SavingsProAccount(accountNumber, initialAmount, this.cin, this.fullName);
+                    this.referenceAccounts.child(accPro.getAccountNo()).setValue(accPro);
+                    this.accounts.add(accPro);
                     return true;
                 }
                 else{
@@ -178,8 +178,8 @@ public class Customer {
                 }
             case 3:
                 if (initialAmount >= 0){
-                    SalaryAccount acc = new SalaryAccount(accountNumber, initialAmount, empId, companyName);
-                    this.referenceAccounts.child(this.getCin()).child(acc.getAccountNo()).setValue(acc);
+                    SalaryAccount acc = new SalaryAccount(accountNumber, initialAmount, this.cin, this.fullName, empId, companyName);
+                    this.referenceAccounts.child(acc.getAccountNo()).setValue(acc);
                     this.accounts.add(acc);
                     return true;
                 }
@@ -235,7 +235,7 @@ public class Customer {
                 double change = wAccount.getCurrentBalance() - amount;
                 wAccount.setCurrentBalance(change);
                 //referenceCin.child("cinReference").setValue(cin);
-                this.referenceAccounts.child(this.getCin()).child(wAccount.getAccountNo()).child("currentBalance").setValue(change);
+                this.referenceAccounts.child(wAccount.getAccountNo()).child("currentBalance").setValue(change);
                 check = true;
             }
             else{
@@ -244,7 +244,7 @@ public class Customer {
             if(check){
                 double change = dAccount.getCurrentBalance() + amount;
                 dAccount.setCurrentBalance(change);
-                this.referenceAccounts.child(this.getCin()).child(dAccount.getAccountNo()).child("currentBalance").setValue(change);
+                this.referenceAccounts.child(dAccount.getAccountNo()).child("currentBalance").setValue(change);
                 check = true;
             }
         }else{

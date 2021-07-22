@@ -82,12 +82,13 @@ public class LoginActivity extends AppCompatActivity {
                                 String pinNumberDB = snapshot.child(cinNumber).child("pinNumber").getValue(String.class);
                                 pin = pinNumberDB;
                                 Customer cus1 = new Customer(cinDB,fullNameDB,fatherNameDB,dobDB,occupationDB,phoneNumberDB,emailIdDB,addressDB,cityDB,panNumberDB,aadharNumberDB,accessCardNumberDB,pinNumberDB);
-                                Query checkAccounts = referenceAccounts.child(cinDB).orderByChild("accountNo");
+                                Query checkAccounts = referenceAccounts.orderByChild("cin").equalTo(cinDB);
                                 checkAccounts.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         if(snapshot.exists()){
                                             int numberOfAccounts = (int) snapshot.getChildrenCount();
+                                            //Toast.makeText(getBaseContext(),String.valueOf(numberOfAccounts),Toast.LENGTH_SHORT);
                                             for(DataSnapshot d : snapshot.getChildren()){
                                                 String accountNo = d.child("accountNo").getValue(String.class);
                                                 double currentBalance = d.child("currentBalance").getValue(Double.class);
@@ -96,10 +97,10 @@ public class LoginActivity extends AppCompatActivity {
                                                     cus1.createAccount(1,accountNo,currentBalance,"","");
                                                 }else if(type.equals("Savings Pro Account")){
                                                     cus1.createAccount(2,accountNo,currentBalance,"","");
-                                                }else{
+                                                }else if(type.equals("Salary Account")){
                                                     String companyName = d.child("companyName").getValue(String.class);
                                                     String empId = d.child("empId").getValue(String.class);
-                                                    cus1.createAccount(1,accountNo,currentBalance,companyName,empId);
+                                                    cus1.createAccount(3,accountNo,currentBalance,companyName,empId);
                                                 }
                                             }
                                         }else{

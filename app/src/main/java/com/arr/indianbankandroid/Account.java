@@ -6,12 +6,33 @@ public class Account {
     private double currentBalance;
     private double minBalance;
     private String type;
+    private String cin;
 
-    public Account(String accountNo, double currentBalance, double minBalance, String type) {
+    public String getCin() {
+        return cin;
+    }
+
+    public void setCin(String cin) {
+        this.cin = cin;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    private String customerName;
+
+    public Account(String accountNo, double currentBalance, double minBalance, String type, String cin, String customerName) {
         this.accountNo = accountNo;
         this.currentBalance = currentBalance;
         this.minBalance = minBalance;
         this.type = type;
+        this.cin = cin;
+        this.customerName = customerName;
     }
 
     public String getAccountNo() {
