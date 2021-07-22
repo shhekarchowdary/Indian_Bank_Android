@@ -1,5 +1,7 @@
 package com.arr.indianbankandroid;
 
+import java.util.ArrayList;
+
 public class Account {
 
     private String accountNo;
@@ -7,6 +9,7 @@ public class Account {
     private double minBalance;
     private String type;
     private String cin;
+    private ArrayList<TransactionsHistory> transferHis = new ArrayList<>();
 
     public String getCin() {
         return cin;
@@ -33,6 +36,14 @@ public class Account {
         this.type = type;
         this.cin = cin;
         this.customerName = customerName;
+    }
+
+    public ArrayList<TransactionsHistory> getTransferHis() {
+        return transferHis;
+    }
+
+    public void setTransferHis(ArrayList<TransactionsHistory> transferHis) {
+        this.transferHis = transferHis;
     }
 
     public String getAccountNo() {
