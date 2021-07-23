@@ -24,7 +24,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TransferToOthersAccountActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     TextView toaAccountHolderName;
@@ -48,6 +50,7 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
     FirebaseDatabase rootNode;
     DatabaseReference referenceCustomers;
     DatabaseReference referenceAccounts;
+    DatabaseReference referenceTransactions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +69,7 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
         rootNode = FirebaseDatabase.getInstance();
         referenceCustomers = rootNode.getReference("Customers");
         referenceAccounts = rootNode.getReference("Accounts");
+        referenceTransactions = rootNode.getReference("Transactions");
 
         for(Account a:cusdata.getAccounts()){
             accName.add(a.getType());
@@ -134,9 +138,17 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
                                 if(am <= tempacc.getCurrentBalance()) {
                                     double value = tempacc.getCurrentBalance() - am;
                                     tempacc.setCurrentBalance(value);
+                                    String date = new SimpleDateFormat("yyyy-MM-DD").format(new Date());
+                                    TransactionsHistory transac = new TransactionsHistory(tempacc.getAccountNo(),date,"Debit","Transfered to "+ (fetchedAccountNo),am);
+                                    tempacc.getTransferHis().add(transac);
                                     referenceAccounts.child(tempacc.getAccountNo()).child("currentBalance").setValue(value);
+                                    String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
+                                    referenceTransactions.child(currentTime).setValue(transac);
                                     double transferValue = fetchedAccountBalance + am;
+                                    TransactionsHistory creditTran = new TransactionsHistory(fetchedAccountNo,date,"Credit","Received from "+(tempacc.getAccountNo()),am);
                                     referenceAccounts.child(fetchedAccountNo).child("currentBalance").setValue(transferValue);
+                                    String currentTime1 = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
+                                    referenceTransactions.child(currentTime1+"1").setValue(creditTran);
                                     Intent in = new Intent(getBaseContext(), Transcation_Success.class);
                                     startActivity(in);
                                     ts = 1;

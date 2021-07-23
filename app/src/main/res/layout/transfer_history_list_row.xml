@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,36 +10,39 @@
         android:layout_height="50dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="TextView"
+        android:maxLines="2"
 
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:text="2021-02-22"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/tvType"
-        android:layout_width="2dp"
+        android:layout_width="12dp"
         android:layout_height="50dp"
         android:layout_weight="1"
-        android:textSize="18sp"
         android:gravity="center"
-        android:textStyle="bold" />
+        android:maxLines="2"
+        android:text="Credit"
+        android:textSize="14sp" />
+
     <TextView
         android:id="@+id/tvDescription"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="TextView"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:maxLines="2"
+        android:text="jsnvnfkjvbnfjeknbkjgnbjrnbjk rtn kjntrkjnbkjtnkjbnkjrn bkjrntbjkrnkbjnjkn kjnkjnkjrtnbjktnbjknrkjb"
+        android:textSize="14sp" />
+
     <TextView
         android:id="@+id/tvTransferHisAmount"
-        android:layout_width="40dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="TextView"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:maxLines="2"
+        android:text="100000"
+        android:textSize="14sp" />
 
 </LinearLayout>

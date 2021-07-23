@@ -1,5 +1,6 @@
 package com.arr.indianbankandroid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,14 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,7 +30,7 @@ import java.util.Date;
 
 public class BankStatement extends AppCompatActivity {
     ArrayList<TransactionsHistory> tfh=new ArrayList<>();
-    EditText startDate,endDate;
+    TextInputEditText startDate,endDate;
     Spinner userAccSpinner;
     ArrayList<String> accNames=new ArrayList<String>();
     Customer cusdata;
@@ -29,6 +38,10 @@ public class BankStatement extends AppCompatActivity {
     BaseAdapter tempAdapter;
     Account tempA;
     Button searchHis;
+
+    FirebaseDatabase rootNode;
+    DatabaseReference referenceCustomers;
+    DatabaseReference referenceTransactions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +52,11 @@ public class BankStatement extends AppCompatActivity {
         userAccSpinner = findViewById(R.id.UserAcc);
         searchHis = findViewById(R.id.searchHis);
         cusdata=LoginActivity2.loggedInCustomer;
+
+        rootNode = FirebaseDatabase.getInstance();
+        referenceCustomers = rootNode.getReference("Customers");
+        referenceTransactions = rootNode.getReference("Transactions");
+
         for(Account a:cusdata.getAccounts()){
             accNames.add(a.getType());
         }
@@ -59,24 +77,55 @@ public class BankStatement extends AppCompatActivity {
         searchHis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("Selected Account Number",tempA.getAccountNo());
                 String sdate = startDate.getText().toString().trim();
                 String edate = endDate.getText().toString().trim();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                try {
-                    Date date1 = sdf.parse(sdate);
-                    Date date2 = sdf.parse(edate);
-                    if(date1.equals(sdf.format(new Date())) )
-                    for (TransactionsHistory th: tempA.getTransferHis()){
-                        Date d1 = sdf.parse(th.getTransferDate());
-                        if(d1.equals(date1) && d1.equals(date2)){
-                            Log.d("listview","data storing");
-                            tfh.add(th);
-                            tempAdapter.notifyDataSetChanged();
+                ArrayList<TransactionsHistory> mTransactions = new ArrayList<>();
+                Query checkTransactions = referenceTransactions.orderByChild("accountNo").equalTo(tempA.getAccountNo());
+                checkTransactions.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            int numberOfTransactions = (int) snapshot.getChildrenCount();
+                            //Toast.makeText(getBaseContext(),String.valueOf(numberOfAccounts),Toast.LENGTH_SHORT);
+                            for(DataSnapshot d : snapshot.getChildren()){
+                                TransactionsHistory fetchedTransaction = (TransactionsHistory) d.getValue(TransactionsHistory.class);
+                                mTransactions.add(fetchedTransaction);
+                                Log.d("No of in Array:",String.valueOf(mTransactions.size()));
+                            }
+                            try {
+                                Date date1 = sdf.parse(sdate);
+                                Date date2 = sdf.parse(edate);
+                                Log.d("start Date:",String.valueOf(date1));
+                                Log.d("End date:",String.valueOf(date2));
+                                if(date1.before(new Date()))
+                                    tfh.clear();
+                                    for (TransactionsHistory th: mTransactions){
+                                        Date d1 = sdf.parse(th.getTransferDate());
+                                        if(d1.compareTo(date1) * d1.compareTo(date2) >= 0){
+                                            Log.d("listview","data storing");
+                                            tfh.add(th);
+                                            tempAdapter.notifyDataSetChanged();
+                                        }
+                                    }
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            Log.d("No of Transactions:",String.valueOf(numberOfTransactions));
+                        }else{
+                            Toast.makeText(getApplicationContext(),"No Transactions Found",Toast.LENGTH_SHORT).show();
                         }
                     }
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                Log.d("Line: 108",String.valueOf(mTransactions.size()));
+
             }
         });
     }

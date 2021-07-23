@@ -41,6 +41,7 @@ public class TravelActivity extends AppCompatActivity {
     FirebaseDatabase rootNode;
     DatabaseReference referenceCustomers;
     DatabaseReference referenceAccounts;
+    DatabaseReference referenceTransactions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,7 @@ public class TravelActivity extends AppCompatActivity {
         rootNode = FirebaseDatabase.getInstance();
         referenceCustomers = rootNode.getReference("Customers");
         referenceAccounts = rootNode.getReference("Accounts");
+        referenceTransactions = rootNode.getReference("Transactions");
 
         loggedInCustomer = LoginActivity2.loggedInCustomer;
         mAccounts.clear();
@@ -143,7 +145,10 @@ public class TravelActivity extends AppCompatActivity {
                     account.setCurrentBalance(value);
                     referenceAccounts.child(account.getAccountNo()).child("currentBalance").setValue(value);
                     String date = new SimpleDateFormat("yyyy-MM-DD").format(new Date());
-                    account.getTransferHis().add(new TransactionsHistory(account.getAccountNo(),date,"Debit","For Travel Bookings",payment));
+                    TransactionsHistory transac = new TransactionsHistory(account.getAccountNo(),date,"Debit","For Travel Bookings",payment);
+                    account.getTransferHis().add(transac);
+                    String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
+                    referenceTransactions.child(currentTime).setValue(transac);
                     int low = 11111;
                     int high = 99999;
                     transId =  r.nextInt(high - low) + low;

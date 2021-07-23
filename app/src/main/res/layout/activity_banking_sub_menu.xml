@@ -8,6 +8,21 @@
     android:orientation="vertical"
     tools:context=".BankingSubMenu">
 
+    <Button
+        android:id="@+id/btnStatement"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_baseline_article_24"
+        android:text="Account Statements"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view7" />
+
     <View
         android:id="@+id/view4"
         style="@style/CardView"
@@ -224,7 +239,7 @@
         android:id="@+id/btnTOA"
         android:layout_width="wrap_content"
         android:layout_height="47dp"
-        android:background="#FFFFFF"
+        android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/view7"
         app:layout_constraintTop_toTopOf="@+id/view7"
         app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />

@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 
 public class BankingSubMenu extends AppCompatActivity {
     ImageButton cb,tma,toa;
-    Button savingsbtn,savingsprobtn,salarybtn,trsavingsbtn,trsavingsprobtn,trsalarybtn,transferNow;
+    Button savingsbtn,savingsprobtn,salarybtn,trsavingsbtn,trsavingsprobtn,trsalarybtn,transferNow,accountStatements;
     public static int c=0,tm=0;
     public static int selected = 0;
     public static int trselected = 0;
@@ -35,6 +35,7 @@ public class BankingSubMenu extends AppCompatActivity {
         trsavingsprobtn = findViewById(R.id.btnsavingspro1);
         trsalarybtn = findViewById(R.id.btnsalary1);
         transferNow = findViewById(R.id.btntransfernow);
+        accountStatements = findViewById(R.id.btnStatement);
 
         cb.setOnClickListener(new onclick());
         tma.setOnClickListener(new onclick());
@@ -119,6 +120,15 @@ public class BankingSubMenu extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        accountStatements.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getBaseContext(), BankStatement.class);
+                startActivity(myIntent);
+            }
+        });
+
     }
     private class onclick implements View.OnClickListener{
 

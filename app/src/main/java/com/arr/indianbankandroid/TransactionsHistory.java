@@ -15,7 +15,9 @@ public class TransactionsHistory {
         this.type = type;
         this.description = description;
         this.Amount = Amount;
+    }
 
+    public TransactionsHistory() {
     }
 
     public String getAccountNo() {

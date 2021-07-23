@@ -119,7 +119,6 @@
         android:layout_marginEnd="10dp"
         android:background="@android:drawable/edit_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4" />
 
@@ -235,7 +234,6 @@
         android:layout_marginEnd="10dp"
         android:background="@android:drawable/edit_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view6" />
 
@@ -325,16 +323,14 @@
     <Button
         android:id="@+id/btnCustomerOverview"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="250dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="73dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="88dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_baseline_info_24"
         android:text="Customer Overview"
-        android:textColor="#30615D"
+        android:textColor="@color/teal_700"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view7" />

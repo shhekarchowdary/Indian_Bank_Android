@@ -30,6 +30,7 @@ public class Customer {
     FirebaseDatabase rootNode;
     DatabaseReference referenceCustomers;
     DatabaseReference referenceAccounts;
+    DatabaseReference referenceTransactions;
 
     private ArrayList<Account> accounts = new ArrayList<>();
 
@@ -50,7 +51,7 @@ public class Customer {
         this.rootNode = FirebaseDatabase.getInstance();
         this.referenceCustomers = rootNode.getReference("Customers");
         this.referenceAccounts = rootNode.getReference("Accounts");
-
+        this.referenceTransactions = rootNode.getReference("Transactions");
     }
 
     public String getCin() {
@@ -164,7 +165,9 @@ public class Customer {
                     this.referenceAccounts.child(accSav.getAccountNo()).setValue(accSav);
                     this.accounts.add(accSav);
                     String date = new SimpleDateFormat("yyyy-MM-DD").format(new Date());
-                    accSav.getTransferHis().add(new TransactionsHistory(accountNumber,date,"Credit","Initial Deposit",initialAmount));
+                    TransactionsHistory transac = new TransactionsHistory(accountNumber,date,"Credit","Initial Deposit",initialAmount);
+                    accSav.getTransferHis().add(transac);
+                    //referenceTransactions.setValue(transac);
                     return true;
                 }
                 else{
@@ -176,7 +179,9 @@ public class Customer {
                     this.referenceAccounts.child(accPro.getAccountNo()).setValue(accPro);
                     this.accounts.add(accPro);
                     String date = new SimpleDateFormat("yyyy-MM-DD").format(new Date());
-                    accPro.getTransferHis().add(new TransactionsHistory(accountNumber,date,"Credit","Initial Deposit",initialAmount));
+                    TransactionsHistory transac = new TransactionsHistory(accountNumber,date,"Credit","Initial Deposit",initialAmount);
+                    accPro.getTransferHis().add(transac);
+                    //referenceTransactions.setValue(transac);
                     return true;
                 }
                 else{
@@ -188,7 +193,9 @@ public class Customer {
                     this.referenceAccounts.child(acc.getAccountNo()).setValue(acc);
                     this.accounts.add(acc);
                     String date = new SimpleDateFormat("yyyy-MM-DD").format(new Date());
-                    acc.getTransferHis().add(new TransactionsHistory(accountNumber,date,"Credit","Initial Deposit",initialAmount));
+                    TransactionsHistory transac = new TransactionsHistory(accountNumber,date,"Credit","Initial Deposit",initialAmount);
+                    acc.getTransferHis().add(transac);
+                    //referenceTransactions.setValue(transac);
                     return true;
                 }
                 else{
@@ -245,7 +252,10 @@ public class Customer {
                 //referenceCin.child("cinReference").setValue(cin);
                 this.referenceAccounts.child(wAccount.getAccountNo()).child("currentBalance").setValue(change);
                 String date = new SimpleDateFormat("yyyy-MM-DD").format(new Date());
-                wAccount.getTransferHis().add(new TransactionsHistory(wAccount.getAccountNo(),date,"Debit","Transfered to "+ (dAccount.getAccountNo()),amount));
+                TransactionsHistory transac = new TransactionsHistory(wAccount.getAccountNo(),date,"Debit","Transfered to "+ (dAccount.getAccountNo()),amount);
+                wAccount.getTransferHis().add(transac);
+                String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
+                referenceTransactions.child(currentTime).setValue(transac);
                 check = true;
             }
             else{
@@ -256,7 +266,10 @@ public class Customer {
                 dAccount.setCurrentBalance(change);
                 this.referenceAccounts.child(dAccount.getAccountNo()).child("currentBalance").setValue(change);
                 String date = new SimpleDateFormat("yyyy-MM-DD").format(new Date());
-                dAccount.getTransferHis().add(new TransactionsHistory(dAccount.getAccountNo(),date,"Credit","Received from "+(wAccount.getAccountNo()),amount));
+                TransactionsHistory transac = new TransactionsHistory(dAccount.getAccountNo(),date,"Credit","Received from "+(wAccount.getAccountNo()),amount);
+                dAccount.getTransferHis().add(transac);
+                String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
+                referenceTransactions.child(currentTime).setValue(transac);
                 check = true;
             }
         }else{
@@ -276,7 +289,10 @@ public class Customer {
             account.setCurrentBalance(change);
             this.referenceAccounts.child(this.getCin()).child(account.getAccountNo()).child("currentBalance").setValue(change);
             String date = new SimpleDateFormat("yyyy-MM-DD").format(new Date());
-            account.getTransferHis().add(new TransactionsHistory(account.getAccountNo(),date,"Debit","For Bills",amt));
+            TransactionsHistory transac = new TransactionsHistory(account.getAccountNo(),date,"Debit","For Bills",amt);
+            account.getTransferHis().add(transac);
+            String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
+            this.referenceTransactions.child(currentTime).setValue(transac);
         }else{
             return 0;
         }

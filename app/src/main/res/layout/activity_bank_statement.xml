@@ -1,84 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BankStatement">
-
-  <EditText
-      android:id="@+id/etvEDate"
-      android:layout_width="218dp"
-      android:layout_height="45dp"
-      android:layout_marginStart="23dp"
-      android:layout_marginTop="12dp"
-      android:ems="10"
-      android:hint="Enter YYYY-MM-DD"
-      android:inputType="textPersonName"
-      app:layout_constraintStart_toEndOf="@+id/tvEndDate"
-      app:layout_constraintTop_toBottomOf="@+id/etvSDate" />
-
-  <TextView
-      android:id="@+id/tvEndDate"
-      android:layout_width="120dp"
-      android:layout_height="40dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginTop="22dp"
-      android:background="@color/teal_700"
-      android:gravity="center|right"
-      android:paddingEnd="3dp"
-      android:text="Ending Date:"
-      android:textAlignment="gravity"
-      android:textColor="@color/white"
-      android:textSize="18sp"
-      android:textStyle="bold"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tvStartDate" />
-
-  <TextView
-      android:id="@+id/tvStartDate"
-      android:layout_width="120dp"
-      android:layout_height="40dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginTop="35dp"
-      android:background="@color/teal_700"
-      android:gravity="center|right"
-      android:paddingEnd="3dp"
-      android:text="Starting Date:"
-      android:textAlignment="gravity"
-      android:textColor="@color/white"
-      android:textSize="18sp"
-      android:textStyle="bold"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tvAccount2" />
-
-  <Spinner
-      android:id="@+id/UserAcc"
-      android:layout_width="215dp"
-      android:layout_height="40dp"
-
-      android:layout_marginStart="23dp"
-      android:layout_marginTop="52dp"
-      app:layout_constraintStart_toEndOf="@+id/tvAccount2"
-      app:layout_constraintTop_toBottomOf="@+id/tvBankingTxt2" />
-
-  <TextView
-      android:id="@+id/tvAccount2"
-      android:layout_width="120dp"
-      android:layout_height="40dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginTop="52dp"
-      android:background="@color/teal_700"
-      android:gravity="center|right"
-      android:paddingEnd="3dp"
-      android:text="Account:"
-      android:textAlignment="gravity"
-      android:textColor="@color/white"
-      android:textSize="18sp"
-      android:textStyle="bold"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tvBankingTxt2" />
 
   <TextView
       android:id="@+id/tvBankingTxt2"
@@ -94,37 +20,94 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
-  <ListView
-      android:id="@+id/HistoryDataList"
-      android:layout_width="413dp"
-      android:layout_height="353dp"
-      android:layout_marginTop="18dp"
-      android:layout_marginBottom="1dp"
-      app:layout_constraintBottom_toBottomOf="parent"
+  <LinearLayout
+      android:id="@+id/linearLayout4"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="40dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginEnd="40dp"
+      android:orientation="vertical"
+      app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/searchHis" />
+      app:layout_constraintTop_toBottomOf="@+id/tvBankingTxt2">
 
-  <EditText
-      android:id="@+id/etvSDate"
-      android:layout_width="218dp"
-      android:layout_height="45dp"
-      android:layout_marginStart="23dp"
-      android:layout_marginTop="35dp"
-      android:ems="10"
-      android:hint="Enter YYYY-MM-DD"
-      android:inputType="textPersonName"
-      app:layout_constraintStart_toEndOf="@+id/tvStartDate"
-      app:layout_constraintTop_toBottomOf="@+id/UserAcc" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Select Account"
+        android:textColor="@color/teal_700"
+        android:textSize="14sp" />
+
+    <Spinner
+        android:id="@+id/UserAcc"
+        android:layout_width="match_parent"
+
+        android:layout_height="40dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxStrokeWidthFocused="2dp"
+        app:counterEnabled="false"
+        app:helperText="should be before day"
+        app:helperTextEnabled="false"
+        app:helperTextTextColor="#BF4B4B">
+
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/etvSDate"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:hint="Start Date"
+          android:inputType="date" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:helperText="should not be future date"
+        app:helperTextTextColor="#BF4B4B">
+
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/etvEDate"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="End Date"
+          android:inputType="date" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+  </LinearLayout>
 
   <Button
       android:id="@+id/searchHis"
+      style="@style/Widget.AppCompat.Button.Borderless"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="135dp"
-      android:layout_marginTop="16dp"
-      android:text="Search"
+      android:layout_marginTop="10dp"
+      android:drawableStart="@drawable/ic_baseline_article_24"
+      android:text="Get Statement"
+      android:textColor="@color/teal_700"
+      android:textSize="18sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/etvEDate" />
+      app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
+  <ListView
+      android:id="@+id/HistoryDataList"
+      android:layout_width="0dp"
+      android:layout_height="300dp"
+      android:layout_marginStart="5dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginEnd="5dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/searchHis" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
