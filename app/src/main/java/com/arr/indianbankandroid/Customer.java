@@ -255,7 +255,7 @@ public class Customer {
                 TransactionsHistory transac = new TransactionsHistory(wAccount.getAccountNo(),date,"Debit","Transfered to "+ (dAccount.getAccountNo()),amount);
                 wAccount.getTransferHis().add(transac);
                 String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
-                referenceTransactions.child(currentTime).setValue(transac);
+                referenceTransactions.child(currentTime+transac.getAccountNo()).setValue(transac);
                 check = true;
             }
             else{
@@ -269,7 +269,7 @@ public class Customer {
                 TransactionsHistory transac = new TransactionsHistory(dAccount.getAccountNo(),date,"Credit","Received from "+(wAccount.getAccountNo()),amount);
                 dAccount.getTransferHis().add(transac);
                 String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
-                referenceTransactions.child(currentTime).setValue(transac);
+                referenceTransactions.child(currentTime+transac.getAccountNo()).setValue(transac);
                 check = true;
             }
         }else{
@@ -292,13 +292,13 @@ public class Customer {
             TransactionsHistory transac = new TransactionsHistory(account.getAccountNo(),date,"Debit","For Bills",amt);
             account.getTransferHis().add(transac);
             String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
-            this.referenceTransactions.child(currentTime).setValue(transac);
+            this.referenceTransactions.child(currentTime+transac.getAccountNo()).setValue(transac);
         }else{
             return 0;
         }
         int low1 = 11111;
         int high1 = 99999;
-        return r.nextInt(high1 - low1) + low1;
+        return r.nextInt(high1 - low1) +  low1;
     }
 
     public double bookings(int bookingSelect, int number) {

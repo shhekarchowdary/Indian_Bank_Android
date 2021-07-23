@@ -25,7 +25,7 @@ import java.util.Random;
 
 public class LiveConcertActivity extends AppCompatActivity {
 
-    EditText noftickets,date;
+    EditText noftickets;
     Button concertbtn,getfareconcert;
     RadioGroup concertradiogrp;
     RadioButton musicconcert,miniconcert,familyconcert;
@@ -50,7 +50,6 @@ public class LiveConcertActivity extends AppCompatActivity {
 
 
         noftickets = findViewById(R.id.liveconcerttickets);
-        date = findViewById(R.id.liveconcertdate);
         concertbtn = findViewById(R.id.liveconcertbtn);
         concertradiogrp = findViewById(R.id.concertradiogrp1);
         musicconcert = findViewById(R.id.musicradio);
@@ -100,10 +99,10 @@ public class LiveConcertActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!noftickets.getText().toString().trim().isEmpty()){
-                    if(!date.getText().toString().trim().isEmpty()){
+                    String no = noftickets.getText().toString().trim();
+                    int num = Integer.parseInt(no);
+                    if(num < 5){
                         if(radioClicked){
-                            String no = noftickets.getText().toString().trim();
-                            int num = Integer.parseInt(no);
                             payment = loggedInCustomer.bookings(3,num);
                             fareconcerttv.setText(Double.toString(payment));
                         }else
@@ -111,7 +110,7 @@ public class LiveConcertActivity extends AppCompatActivity {
                     }else
                         Toast.makeText(getBaseContext(),"Enter Date",Toast.LENGTH_LONG).show();
                 }else
-                    Toast.makeText(getBaseContext(),"Enter Number Of Tickets",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(),"Max 5 tickets only per Id",Toast.LENGTH_LONG).show();
             }
         });
 
@@ -148,7 +147,7 @@ public class LiveConcertActivity extends AppCompatActivity {
                     TransactionsHistory transac = new TransactionsHistory(account.getAccountNo(),date,"Debit","For Live Concert",payment);
                     account.getTransferHis().add(transac);
                     String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
-                    referenceTransactions.child(currentTime).setValue(transac);
+                    referenceTransactions.child(currentTime+transac.getAccountNo()).setValue(transac);
                     int low = 11111;
                     int high = 99999;
                     transId =  r.nextInt(high - low) + low;

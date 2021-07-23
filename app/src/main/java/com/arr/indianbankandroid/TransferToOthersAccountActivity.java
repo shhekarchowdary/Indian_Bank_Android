@@ -143,12 +143,12 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
                                     tempacc.getTransferHis().add(transac);
                                     referenceAccounts.child(tempacc.getAccountNo()).child("currentBalance").setValue(value);
                                     String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
-                                    referenceTransactions.child(currentTime).setValue(transac);
+                                    referenceTransactions.child(currentTime+transac.getAccountNo()).setValue(transac);
                                     double transferValue = fetchedAccountBalance + am;
                                     TransactionsHistory creditTran = new TransactionsHistory(fetchedAccountNo,date,"Credit","Received from "+(tempacc.getAccountNo()),am);
                                     referenceAccounts.child(fetchedAccountNo).child("currentBalance").setValue(transferValue);
                                     String currentTime1 = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
-                                    referenceTransactions.child(currentTime1+"1").setValue(creditTran);
+                                    referenceTransactions.child(currentTime1+transac.getAccountNo()).setValue(creditTran);
                                     Intent in = new Intent(getBaseContext(), Transcation_Success.class);
                                     startActivity(in);
                                     ts = 1;

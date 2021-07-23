@@ -33,54 +33,38 @@
 
         <RadioButton
             android:id="@+id/musicradio"
-            android:layout_width="200dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:buttonTint="@color/teal_700"
-            android:text="Music Concert"
+            android:text="SPB Lives on Music Concert-25-July"
             android:textColor="@color/teal_700"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/familybtn"
-            android:layout_width="200dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:buttonTint="@color/teal_700"
-            android:text="Family Concert"
+            android:text="Justin Bieber live concert-30-July"
             android:textColor="@color/teal_700"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/miniconcertbtn"
-            android:layout_width="200dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:buttonTint="@color/teal_700"
-            android:text="Mini Concert"
+            android:text="Laughing Night - Standup comedy-05-August"
             android:textColor="@color/teal_700"
             android:textSize="18sp"
             android:textStyle="bold" />
 
     </RadioGroup>
-
-    <TextView
-        android:id="@+id/concerttvid"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/teal_700"
-        android:gravity="center"
-        android:text="Enter Date"
-        android:textAlignment="gravity"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nooftcktstv" />
 
     <TextView
         android:id="@+id/nooftcktstv"
@@ -109,16 +93,6 @@
         android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/nooftcktstv"
         app:layout_constraintTop_toBottomOf="@+id/concertradiogrp1" />
-
-    <EditText
-        android:id="@+id/liveconcertdate"
-        android:layout_width="220dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintStart_toEndOf="@+id/concerttvid"
-        app:layout_constraintTop_toBottomOf="@+id/liveconcerttickets" />
 
     <Button
         android:id="@+id/liveconcertbtn"
@@ -167,7 +141,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
         android:background="@color/teal_700"
         android:gravity="center"
@@ -178,7 +152,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/concerttvid" />
+        app:layout_constraintTop_toBottomOf="@+id/liveconcerttickets" />
 
     <Spinner
         android:id="@+id/concertspinner"

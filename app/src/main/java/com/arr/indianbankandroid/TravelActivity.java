@@ -148,7 +148,7 @@ public class TravelActivity extends AppCompatActivity {
                     TransactionsHistory transac = new TransactionsHistory(account.getAccountNo(),date,"Debit","For Travel Bookings",payment);
                     account.getTransferHis().add(transac);
                     String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
-                    referenceTransactions.child(currentTime).setValue(transac);
+                    referenceTransactions.child(currentTime+transac.getAccountNo()).setValue(transac);
                     int low = 11111;
                     int high = 99999;
                     transId =  r.nextInt(high - low) + low;
