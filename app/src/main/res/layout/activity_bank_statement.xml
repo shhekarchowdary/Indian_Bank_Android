@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BankStatement">
+
+  <TextView
+      android:id="@+id/tvBankingTxt2"
+      android:layout_width="match_parent"
+      android:layout_height="66dp"
+      android:background="@color/teal_700"
+      android:gravity="center"
+      android:text="Bank Statement"
+      android:textColor="@color/white"
+      android:textSize="24sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <LinearLayout
+      android:id="@+id/linearLayout4"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="40dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginEnd="40dp"
+      android:orientation="vertical"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tvBankingTxt2">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Select Account"
+        android:textColor="@color/teal_700"
+        android:textSize="14sp" />
+
+    <Spinner
+        android:id="@+id/UserAcc"
+        android:layout_width="match_parent"
+
+        android:layout_height="40dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxStrokeWidthFocused="2dp"
+        app:counterEnabled="false"
+        app:helperText="should be before day"
+        app:helperTextEnabled="false"
+        app:helperTextTextColor="#BF4B4B">
+
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/etvSDate"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:hint="Start Date"
+          android:inputType="date" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:helperText="should not be future date"
+        app:helperTextTextColor="#BF4B4B">
+
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/etvEDate"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="End Date"
+          android:inputType="date" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+  </LinearLayout>
+
+  <Button
+      android:id="@+id/searchHis"
+      style="@style/Widget.AppCompat.Button.Borderless"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:drawableStart="@drawable/ic_baseline_article_24"
+      android:text="Get Statement"
+      android:textColor="@color/teal_700"
+      android:textSize="18sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
+  <ListView
+      android:id="@+id/HistoryDataList"
+      android:layout_width="0dp"
+      android:layout_height="300dp"
+      android:layout_marginStart="5dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginEnd="5dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/searchHis" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

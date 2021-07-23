@@ -15,7 +15,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 public class TravelActivity extends AppCompatActivity {
@@ -33,6 +38,11 @@ public class TravelActivity extends AppCompatActivity {
     double payment;
     int transId,accountSel;
 
+    FirebaseDatabase rootNode;
+    DatabaseReference referenceCustomers;
+    DatabaseReference referenceAccounts;
+    DatabaseReference referenceTransactions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +59,11 @@ public class TravelActivity extends AppCompatActivity {
         bus = findViewById(R.id.busbtn);
         mTravelTotal = findViewById(R.id.txtTravelTotal);
         getbtn = findViewById(R.id.gettcktbtn);
+
+        rootNode = FirebaseDatabase.getInstance();
+        referenceCustomers = rootNode.getReference("Customers");
+        referenceAccounts = rootNode.getReference("Accounts");
+        referenceTransactions = rootNode.getReference("Transactions");
 
         loggedInCustomer = LoginActivity2.loggedInCustomer;
         mAccounts.clear();
@@ -126,7 +141,14 @@ public class TravelActivity extends AppCompatActivity {
                 Random r = new Random();
                 Account account = loggedInCustomer.getAccount(accountSel);
                 if(payment < account.getCurrentBalance()){
-                    account.setCurrentBalance(account.getCurrentBalance() - payment);
+                    double value = account.getCurrentBalance() - payment;
+                    account.setCurrentBalance(value);
+                    referenceAccounts.child(account.getAccountNo()).child("currentBalance").setValue(value);
+                    String date = new SimpleDateFormat("yyyy-MM-DD").format(new Date());
+                    TransactionsHistory transac = new TransactionsHistory(account.getAccountNo(),date,"Debit","For Travel Bookings",payment);
+                    account.getTransferHis().add(transac);
+                    String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
+                    referenceTransactions.child(currentTime).setValue(transac);
                     int low = 11111;
                     int high = 99999;
                     transId =  r.nextInt(high - low) + low;
