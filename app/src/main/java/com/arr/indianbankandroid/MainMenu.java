@@ -9,13 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainMenu extends AppCompatActivity {
     ImageButton banking,paybills,bookings,logout;
     Button cusOverView,checkBalance,transfer,others,hydro,water,gas,phone,broadband,travel,movies,liveconcert;
     TextView cusName;
     Customer cusdata;
-    public static int c1=0,tm1=0;
+    public static int c1=0,tm1=0,t1=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +101,7 @@ public class MainMenu extends AppCompatActivity {
             public void onClick(View view) {
                 tm1=1;
                 c1=0;
+                t1=1;
                 Intent myIntent = new Intent(getBaseContext(), BankTranscations.class);
                 startActivity(myIntent);
             }
@@ -156,7 +158,7 @@ public class MainMenu extends AppCompatActivity {
         travel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getBaseContext(), BroadBandActivity.class);
+                Intent myIntent = new Intent(getBaseContext(), TravelActivity.class);
                 startActivity(myIntent);
             }
         });
@@ -164,7 +166,7 @@ public class MainMenu extends AppCompatActivity {
         movies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getBaseContext(), BroadBandActivity.class);
+                Intent myIntent = new Intent(getBaseContext(), MovieActivity.class);
                 startActivity(myIntent);
             }
         });
@@ -172,7 +174,7 @@ public class MainMenu extends AppCompatActivity {
         liveconcert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getBaseContext(), BroadBandActivity.class);
+                Intent myIntent = new Intent(getBaseContext(), LiveConcertActivity.class);
                 startActivity(myIntent);
             }
         });
@@ -190,10 +192,7 @@ public class MainMenu extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(getApplicationContext(),LoginActivity.class);
-        i.putExtra("from","main");
-        startActivity(i);
-
+        Toast.makeText(getBaseContext(),"Press Logout Button for Logout",Toast.LENGTH_LONG).show();
     }
 
 

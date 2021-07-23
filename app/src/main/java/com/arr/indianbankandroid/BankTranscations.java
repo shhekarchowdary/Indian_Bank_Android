@@ -65,9 +65,9 @@ public class BankTranscations extends AppCompatActivity {
         tm= BankingSubMenu.tm;
         c1= MainMenu.c1;
         tm1= MainMenu.tm1;
-        spFromAcc.setSelection(spinnerselected);
-        spToAcc.setSelection(trspinnerselected);
-        if(c==1 || c1==1){
+        Log.d("c,c1",String.valueOf(c)+String.valueOf(c1));
+        Log.d("tm,tm1",String.valueOf(tm)+String.valueOf(tm1));
+        if(c == 1 || c1==1){
             //setTitle is used to change title of the activity.
             setTitle("Check Balance");
             tvBankTransTxt.setText("Check Balance");
@@ -82,6 +82,10 @@ public class BankTranscations extends AppCompatActivity {
             spToAcc.setVisibility(View.INVISIBLE);
             tvFromAcc.setVisibility(View.INVISIBLE);
             tvToAcc.setVisibility(View.INVISIBLE);
+
+            spFromAcc.setSelection(spinnerselected);
+            spToAcc.setSelection(trspinnerselected);
+
 
         }
         else if(tm==1 || tm1==1){
@@ -146,7 +150,7 @@ public class BankTranscations extends AppCompatActivity {
             if(parent.getId()==R.id.spFromAcc){
                 for(Account a:cusdata.getAccounts()){
                     if(a.getType()==accNames.get(position)){
-                        if(c==1){
+                        if(c==1 || c1 == 1){
                             balanceAmount.setText(String.valueOf(a.getCurrentBalance()));
                         }
                         else{

@@ -108,9 +108,9 @@ public class LiveConcertActivity extends AppCompatActivity {
                         }else
                             Toast.makeText(getBaseContext(),"Select Concert",Toast.LENGTH_LONG).show();
                     }else
-                        Toast.makeText(getBaseContext(),"Enter Date",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(),"Max 5 tickets only per Id",Toast.LENGTH_LONG).show();
                 }else
-                    Toast.makeText(getBaseContext(),"Max 5 tickets only per Id",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(),"Enter Number Of Tickets",Toast.LENGTH_LONG).show();
             }
         });
 

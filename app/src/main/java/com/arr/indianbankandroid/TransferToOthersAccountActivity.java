@@ -132,34 +132,38 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
                 if(ch==1) {
                     if (!(toaAmount.getText().toString()).isEmpty() || !(toaAccountNum.getText().toString()).isEmpty()) {
                         if (fetchedAccountNo != null) {
-                            double am = 0;
-                            try {
-                                am = Double.parseDouble(toaAmount.getText().toString());
-                                if(am <= tempacc.getCurrentBalance()) {
-                                    double value = tempacc.getCurrentBalance() - am;
-                                    tempacc.setCurrentBalance(value);
-                                    String date = new SimpleDateFormat("yyyy-MM-DD").format(new Date());
-                                    TransactionsHistory transac = new TransactionsHistory(tempacc.getAccountNo(),date,"Debit","Transfered to "+ (fetchedAccountNo),am);
-                                    tempacc.getTransferHis().add(transac);
-                                    referenceAccounts.child(tempacc.getAccountNo()).child("currentBalance").setValue(value);
-                                    String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
-                                    referenceTransactions.child(currentTime+transac.getAccountNo()).setValue(transac);
-                                    double transferValue = fetchedAccountBalance + am;
-                                    TransactionsHistory creditTran = new TransactionsHistory(fetchedAccountNo,date,"Credit","Received from "+(tempacc.getAccountNo()),am);
-                                    referenceAccounts.child(fetchedAccountNo).child("currentBalance").setValue(transferValue);
-                                    String currentTime1 = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
-                                    referenceTransactions.child(currentTime1+transac.getAccountNo()).setValue(creditTran);
-                                    Intent in = new Intent(getBaseContext(), Transcation_Success.class);
-                                    startActivity(in);
-                                    ts = 1;
+                            if (!fetchedAccountNo.equals(tempacc.getAccountNo())){
+                                Log.d(fetchedAccountNo,tempacc.getAccountNo());
+                                double am = 0;
+                                try {
+                                    am = Double.parseDouble(toaAmount.getText().toString());
+                                    if(am <= tempacc.getCurrentBalance()) {
+                                        double value = tempacc.getCurrentBalance() - am;
+                                        tempacc.setCurrentBalance(value);
+                                        String date = new SimpleDateFormat("yyyy-MM-DD").format(new Date());
+                                        TransactionsHistory transac = new TransactionsHistory(tempacc.getAccountNo(),date,"Debit","Transfered to "+ (fetchedAccountNo),am);
+                                        tempacc.getTransferHis().add(transac);
+                                        referenceAccounts.child(tempacc.getAccountNo()).child("currentBalance").setValue(value);
+                                        String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
+                                        referenceTransactions.child(currentTime+transac.getAccountNo()).setValue(transac);
+                                        double transferValue = fetchedAccountBalance + am;
+                                        TransactionsHistory creditTran = new TransactionsHistory(fetchedAccountNo,date,"Credit","Received from "+(tempacc.getAccountNo()),am);
+                                        referenceAccounts.child(fetchedAccountNo).child("currentBalance").setValue(transferValue);
+                                        String currentTime1 = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
+                                        referenceTransactions.child(currentTime1+creditTran.getAccountNo()).setValue(creditTran);
+                                        Intent in = new Intent(getBaseContext(), Transcation_Success.class);
+                                        startActivity(in);
+                                        ts = 1;
+                                    }
+                                    else{
+                                        Toast.makeText(getBaseContext(), "Transaction Failed \n Insufficient Balance", Toast.LENGTH_LONG).show();
+                                    }
+                                } catch (NumberFormatException e) {
+                                    Toast.makeText(getBaseContext(), "please enter amount", Toast.LENGTH_LONG).show();
                                 }
-                                else{
-                                    Toast.makeText(getBaseContext(), "Transaction Failed \n Insufficient Balance", Toast.LENGTH_LONG).show();
-                                }
-                            } catch (NumberFormatException e) {
-                                Toast.makeText(getBaseContext(), "please enter amount", Toast.LENGTH_LONG).show();
+                            }else{
+                                Toast.makeText(getBaseContext(), "Sender and Beneficiary should not be same", Toast.LENGTH_LONG).show();
                             }
-
                         } else {
                             Toast.makeText(getBaseContext(), "Invalid Beneficiary Details", Toast.LENGTH_LONG).show();
                         }
@@ -177,7 +181,7 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         for(Account acc:cusdata.getAccounts()){
-            if(acc.getType()== accName.get(position)){
+            if(acc.getType() == accName.get(position)){
                 tempacc = acc;
                 Log.d("spinner account",acc.getType());
             }

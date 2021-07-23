@@ -61,4 +61,14 @@ public class PaybillsActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent inn = new Intent(getBaseContext(),MainMenu.class);
+        inn.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP );
+        inn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //inn.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(inn);
+        finish(); // finish the current activity
+    }
 }
