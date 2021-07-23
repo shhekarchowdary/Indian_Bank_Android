@@ -12,9 +12,10 @@ import android.widget.TextView;
 
 public class MainMenu extends AppCompatActivity {
     ImageButton banking,paybills,bookings,logout;
-    Button cusOverView;
+    Button cusOverView,checkBalance,transfer,others,hydro,water,gas,phone,broadband,travel,movies,liveconcert;
     TextView cusName;
     Customer cusdata;
+    public static int c1=0,tm1=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,17 @@ public class MainMenu extends AppCompatActivity {
         cusOverView=findViewById(R.id.btnCustomerOverview);
         bookings=findViewById(R.id.btnBookings);
         logout=findViewById(R.id.btnLogout);
+        checkBalance=findViewById(R.id.btnCheckBalance);
+        transfer=findViewById(R.id.btnTransfer);
+        others=findViewById(R.id.btnOthers);
+        hydro=findViewById(R.id.btnHydroBill);
+        water=findViewById(R.id.btnWaterBill);
+        gas=findViewById(R.id.btnGasBill);
+        phone=findViewById(R.id.btnPhoneBill);
+        broadband=findViewById(R.id.btnBroadbandBill);
+        travel=findViewById(R.id.btnTravel);
+        movies=findViewById(R.id.btnMovieTickets);
+        liveconcert=findViewById(R.id.btnLiveConcert);
 
         cusdata = LoginActivity2.loggedInCustomer;
         Log.d("logincheck",cusdata.getFullName());
@@ -70,6 +82,98 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loggingout();
+            }
+        });
+
+        checkBalance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                c1=1;
+                tm1=0;
+                Intent myIntent = new Intent(getBaseContext(), BankTranscations.class);
+                startActivity(myIntent);
+            }
+        });
+
+        transfer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tm1=1;
+                c1=0;
+                Intent myIntent = new Intent(getBaseContext(), BankTranscations.class);
+                startActivity(myIntent);
+            }
+        });
+
+        others.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getBaseContext(), TransferToOthersAccountActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        hydro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getBaseContext(), HydroActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        water.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getBaseContext(), WaterActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        gas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getBaseContext(), GasActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getBaseContext(), PhoneActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        broadband.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getBaseContext(), BroadBandActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        travel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getBaseContext(), BroadBandActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        movies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getBaseContext(), BroadBandActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        liveconcert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getBaseContext(), BroadBandActivity.class);
+                startActivity(myIntent);
             }
         });
 

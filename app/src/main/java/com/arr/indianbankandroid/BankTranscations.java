@@ -22,7 +22,7 @@ public class BankTranscations extends AppCompatActivity {
     EditText etvAmount;
     Button btnTransfer;
     Spinner spToAcc,spFromAcc;
-    int c=0,tm=0;
+    int c=0,tm=0, c1=0, tm1=0;
     Customer cusdata;
     ArrayList<String> accNames=new ArrayList<String>();
     int enteredAmount,fromaccty,toaccty;
@@ -63,9 +63,11 @@ public class BankTranscations extends AppCompatActivity {
         spToAcc.setOnItemSelectedListener(new spinnerEvents());
         c= BankingSubMenu.c;
         tm= BankingSubMenu.tm;
+        c1= MainMenu.c1;
+        tm1= MainMenu.tm1;
         spFromAcc.setSelection(spinnerselected);
         spToAcc.setSelection(trspinnerselected);
-        if(c==1){
+        if(c==1 || c1==1){
             //setTitle is used to change title of the activity.
             setTitle("Check Balance");
             tvBankTransTxt.setText("Check Balance");
@@ -82,7 +84,7 @@ public class BankTranscations extends AppCompatActivity {
             tvToAcc.setVisibility(View.INVISIBLE);
 
         }
-        else if(tm==1){
+        else if(tm==1 || tm1==1){
             //setTitle is used to change title of the activity.
             setTitle("Transfer Money to My Account");
             tvBankTransTxt.setText("Transfer Money to My Account");
