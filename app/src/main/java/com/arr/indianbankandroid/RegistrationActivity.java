@@ -3,6 +3,7 @@ package com.arr.indianbankandroid;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -167,5 +168,7 @@ public class RegistrationActivity extends AppCompatActivity {
         referenceCustomers.child(cus1.getCin()).setValue(cus1);
         referenceCin.child("cinReference").setValue(cin);
         singleTime = true;
+        Intent i = new Intent(getBaseContext(),LoginCredentials.class);
+        startActivity(i);
     }
 }
