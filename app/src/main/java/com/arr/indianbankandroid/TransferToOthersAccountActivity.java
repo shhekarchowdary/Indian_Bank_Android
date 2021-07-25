@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -105,12 +106,14 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
                                     }
                                 }
                                 if(accs == 0){
-                                    Toast.makeText(getApplicationContext(), "No Accounts Found", Toast.LENGTH_SHORT).show();
+                                    Snackbar.make(toafetch, "No Accounts Found with given Number", Snackbar.LENGTH_LONG).show();
+                                    //Toast.makeText(getApplicationContext(), "No Accounts Found", Toast.LENGTH_SHORT).show();
                                     toaAccountHolderName.setText("");
                                 }
                             }else{
                                 Log.d("No Account Foung","");
-                                Toast.makeText(getApplicationContext(), "No Accounts Found", Toast.LENGTH_SHORT).show();
+                                Snackbar.make(toafetch, "No Accounts Found with given Number", Snackbar.LENGTH_LONG).show();
+                                //Toast.makeText(getApplicationContext(), "No Accounts Found", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -121,7 +124,8 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
                     });
 
                 } else {
-                    Toast.makeText(getBaseContext(), "please enter account number to fetch details", Toast.LENGTH_LONG).show();
+                    Snackbar.make(toafetch, "please enter account number to fetch details", Snackbar.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(), "please enter account number to fetch details", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -156,23 +160,30 @@ public class TransferToOthersAccountActivity extends AppCompatActivity implement
                                         ts = 1;
                                     }
                                     else{
-                                        Toast.makeText(getBaseContext(), "Transaction Failed \n Insufficient Balance", Toast.LENGTH_LONG).show();
+                                        Snackbar.make(toaTransfer, "Transaction Failed \n " +
+                                                                   "Insufficient Balance", Snackbar.LENGTH_LONG).show();
+                                        //Toast.makeText(getBaseContext(), "Transaction Failed \n Insufficient Balance", Toast.LENGTH_LONG).show();
                                     }
                                 } catch (NumberFormatException e) {
-                                    Toast.makeText(getBaseContext(), "please enter amount", Toast.LENGTH_LONG).show();
+                                    Snackbar.make(toaTransfer, "please enter amount", Snackbar.LENGTH_LONG).show();
+                                    //Toast.makeText(getBaseContext(), "please enter amount", Toast.LENGTH_LONG).show();
                                 }
                             }else{
-                                Toast.makeText(getBaseContext(), "Sender and Beneficiary should not be same", Toast.LENGTH_LONG).show();
+                                Snackbar.make(toaTransfer, "Sender and Beneficiary should not be same", Snackbar.LENGTH_LONG).show();
+                                //Toast.makeText(getBaseContext(), "Sender and Beneficiary should not be same", Toast.LENGTH_LONG).show();
                             }
                         } else {
-                            Toast.makeText(getBaseContext(), "Invalid Beneficiary Details", Toast.LENGTH_LONG).show();
+                            Snackbar.make(toaTransfer, "Invalid Beneficiary Details", Snackbar.LENGTH_LONG).show();
+                            //Toast.makeText(getBaseContext(), "Invalid Beneficiary Details", Toast.LENGTH_LONG).show();
                         }
                     } else {
-                        Toast.makeText(getBaseContext(), "please fill all details", Toast.LENGTH_LONG).show();
+                        Snackbar.make(toaTransfer, "please fill all details", Snackbar.LENGTH_LONG).show();
+                        //Toast.makeText(getBaseContext(), "please fill all details", Toast.LENGTH_LONG).show();
                     }
                 }
                 else {
-                    Toast.makeText(getBaseContext(), "please click fetch details button to check account number", Toast.LENGTH_LONG).show();
+                    Snackbar.make(toaTransfer, "please click fetch details button to check account number", Snackbar.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(), "please click fetch details button to check account number", Toast.LENGTH_LONG).show();
                 }
             }
         });

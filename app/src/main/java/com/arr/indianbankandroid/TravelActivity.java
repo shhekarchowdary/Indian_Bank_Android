@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -106,13 +107,17 @@ public class TravelActivity extends AppCompatActivity {
                                 payment = loggedInCustomer.bookings(2,1);
                                 mTravelTotal.setText(Double.toString(payment));
                             }else
-                                Toast.makeText(getBaseContext(),"Select Mode of Transport",Toast.LENGTH_LONG).show();
+                                Snackbar.make(getbtn, "Select Mode of Transport", Snackbar.LENGTH_LONG).show();
+                                //Toast.makeText(getBaseContext(),"Select Mode of Transport",Toast.LENGTH_LONG).show();
                         }else
-                            Toast.makeText(getBaseContext(),"Enter Date",Toast.LENGTH_LONG).show();
+                            Snackbar.make(getbtn, "Enter Date", Snackbar.LENGTH_LONG).show();
+                            //Toast.makeText(getBaseContext(),"Enter Date",Toast.LENGTH_LONG).show();
                     }else
-                        Toast.makeText(getBaseContext(),"Enter Destination City",Toast.LENGTH_LONG).show();
+                        Snackbar.make(getbtn, "Enter Destination City", Snackbar.LENGTH_LONG).show();
+                        //Toast.makeText(getBaseContext(),"Enter Destination City",Toast.LENGTH_LONG).show();
                 }else
-                    Toast.makeText(getBaseContext(),"Enter Source City",Toast.LENGTH_LONG).show();
+                    Snackbar.make(getbtn, "Enter Source City", Snackbar.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(),"Enter Source City",Toast.LENGTH_LONG).show();
             }
         });
 
@@ -158,7 +163,8 @@ public class TravelActivity extends AppCompatActivity {
                     i.putExtra("fromBookings",1);
                     startActivity(i);
                 }else{
-                    Toast.makeText(getBaseContext(),"InSufficient Balance Booking Failed",Toast.LENGTH_LONG).show();
+                    Snackbar.make(travelbtn, "InSufficient Balance Booking Failed", Snackbar.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(),"InSufficient Balance Booking Failed",Toast.LENGTH_LONG).show();
                 }
             }
         });

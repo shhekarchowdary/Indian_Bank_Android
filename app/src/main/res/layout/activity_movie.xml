@@ -6,6 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".MovieActivity">
 
+    <Button
+        android:id="@+id/bookbtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTintMode="add"
+        android:drawableStart="@drawable/ic_baseline_book_online_24"
+        android:text="Book"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moviegetfaretv" />
+
+    <Button
+        android:id="@+id/moviefarebtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:drawableStart="@drawable/ic_baseline_arrow_downward_24"
+        android:text="Get Fare"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moviesp" />
+
     <RadioGroup
         android:id="@+id/movieradiogrp"
         android:layout_width="401dp"
@@ -93,21 +125,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/movieradiogrp" />
 
-    <Button
-        android:id="@+id/bookbtn"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="50dp"
-        android:background="@color/purple_500"
-        android:text="Book"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/moviegetfaretv" />
-
     <EditText
         android:id="@+id/noofseats"
         android:layout_width="220dp"
@@ -121,20 +138,6 @@
         app:layout_constraintStart_toEndOf="@+id/nofst"
         app:layout_constraintTop_toBottomOf="@+id/movieradiogrp"
         app:layout_constraintVertical_bias="0.75" />
-
-    <Button
-        android:id="@+id/moviefarebtn"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
-        android:text="Get Fare"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/moviesp" />
 
     <TextView
         android:id="@+id/moviegetfaretv"

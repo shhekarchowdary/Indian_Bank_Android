@@ -149,7 +149,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     }
 
                 }else{
-                    Toast.makeText(getBaseContext(),"Cant Fetch CIN Number",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(),"Cant Fetch CIN Number",Toast.LENGTH_SHORT).show();
                 }
             }
 

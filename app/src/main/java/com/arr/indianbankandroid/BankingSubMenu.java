@@ -15,6 +15,7 @@ public class BankingSubMenu extends AppCompatActivity {
     public static int c=0,tm=0;
     public static int selected = 0;
     public static int trselected = 0;
+    Customer loggedInCustomer;
 
 
     @Override
@@ -36,10 +37,31 @@ public class BankingSubMenu extends AppCompatActivity {
         trsalarybtn = findViewById(R.id.btnsalary1);
         transferNow = findViewById(R.id.btntransfernow);
         accountStatements = findViewById(R.id.btnStatement);
+        loggedInCustomer = LoginActivity.loggedInCustomer;
 
         cb.setOnClickListener(new onclick());
         tma.setOnClickListener(new onclick());
         toa.setOnClickListener(new onclick());
+
+        savingsbtn.setVisibility(View.INVISIBLE);
+        savingsprobtn.setVisibility(View.INVISIBLE);
+        salarybtn.setVisibility(View.INVISIBLE);
+        trsavingsbtn.setVisibility(View.INVISIBLE);
+        trsavingsprobtn.setVisibility(View.INVISIBLE);
+        trsalarybtn.setVisibility(View.INVISIBLE);
+
+        for(Account a: loggedInCustomer.getAccounts()){
+            if(a.getType().equals("Savings Account")){
+                savingsbtn.setVisibility(View.VISIBLE);
+                trsavingsbtn.setVisibility(View.VISIBLE);
+            }else if(a.getType().equals("Savings Pro Account")){
+                savingsprobtn.setVisibility(View.VISIBLE);
+                trsavingsprobtn.setVisibility(View.VISIBLE);
+            }else{
+                salarybtn.setVisibility(View.VISIBLE);
+                trsalarybtn.setVisibility(View.VISIBLE);
+            }
+        }
 
         savingsbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +74,7 @@ public class BankingSubMenu extends AppCompatActivity {
 
             }
         });
+
 
         savingsprobtn.setOnClickListener(new View.OnClickListener() {
             @Override

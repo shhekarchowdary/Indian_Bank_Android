@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,7 +26,7 @@ import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextView mNext;
+    Button mNext;
     TextInputEditText mAccessNumber;
     ImageView mImageView2;
 
@@ -126,6 +128,8 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
 
+                }else{
+                    Snackbar.make(mNext, "Please Enter CIN Number", Snackbar.LENGTH_LONG).show();
                 }
             }
         });

@@ -25,7 +25,7 @@
     <View
         android:id="@+id/view3"
         android:layout_width="0dp"
-        android:layout_height="350dp"
+        android:layout_height="300dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
@@ -39,16 +39,12 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="271dp"
-        android:layout_marginBottom="238dp"
         android:drawableTop="@drawable/ic_baseline_electrical_services_24"
         android:text="HYDRO BILL"
         android:textColor="@color/teal_700"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view3"
-        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/view3"
         app:layout_constraintTop_toTopOf="@+id/view3" />
 
@@ -57,17 +53,13 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="271dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="232dp"
         android:drawableTop="@drawable/ic_baseline_water_damage_24"
         android:text="WATER BILL"
         android:textColor="@color/teal_700"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="@+id/view3"
-        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/view3" />
 
     <Button
@@ -75,36 +67,28 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="146dp"
-        android:layout_marginEnd="271dp"
-        android:layout_marginBottom="130dp"
         android:drawableTop="@drawable/ic_baseline_local_gas_station_24"
         android:text="GAS BILL"
         android:textColor="@color/teal_700"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view3"
-        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/view3"
-        app:layout_constraintTop_toTopOf="@+id/view3" />
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
     <Button
         android:id="@+id/phonesubmenubtn"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="271dp"
-        android:layout_marginTop="146dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="130dp"
         android:drawableTop="@drawable/ic_baseline_phone_android_24"
         android:text="PHONE BILL"
         android:textColor="@color/teal_700"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toEndOf="@+id/view3"
-        app:layout_constraintStart_toStartOf="@+id/view3"
-        app:layout_constraintTop_toTopOf="@+id/view3" />
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
     <Button
         android:id="@+id/broadbandsubmenubtn"
@@ -119,6 +103,27 @@
         app:layout_constraintEnd_toEndOf="@+id/view3"
         app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="@+id/view3"
-        app:layout_constraintTop_toTopOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.962" />
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="186dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="286dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

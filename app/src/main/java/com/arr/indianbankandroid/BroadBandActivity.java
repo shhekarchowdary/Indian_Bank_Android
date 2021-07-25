@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
 public class BroadBandActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -63,13 +65,16 @@ public class BroadBandActivity extends AppCompatActivity implements AdapterView.
                             i.putExtra("fromPayBills",1);
                             startActivity(i);
                         }else{
-                            Toast.makeText(getBaseContext(),"Transaction Declined Insufficient Balance",Toast.LENGTH_SHORT).show();
+                            Snackbar.make(broadpay, "Transaction Declined Insufficient Balance", Snackbar.LENGTH_LONG).show();
+                            //Toast.makeText(getBaseContext(),"Transaction Declined Insufficient Balance",Toast.LENGTH_SHORT).show();
                         }
                     }else {
-                        Toast.makeText(getBaseContext(),"Enter Amount",Toast.LENGTH_SHORT).show();
+                        Snackbar.make(broadpay, "Please Enter Amount", Snackbar.LENGTH_LONG).show();
+                        //Toast.makeText(getBaseContext(),"Enter Amount",Toast.LENGTH_SHORT).show();
                     }
                 }else {
-                    Toast.makeText(getBaseContext(),"Enter Subscription Number",Toast.LENGTH_SHORT).show();
+                    Snackbar.make(broadpay, "Enter Subscription Number", Snackbar.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(),"Enter Subscription Number",Toast.LENGTH_SHORT).show();
                 }
             }
         });

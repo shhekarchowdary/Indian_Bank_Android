@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -72,16 +73,16 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getBaseContext(),String.valueOf(referenceCustomers),Toast.LENGTH_SHORT).show();
         referenceAccounts = rootNode.getReference("Accounts");
 
-        Customer cus1 = new Customer("10101", "Soma Sekhar Anaparthi", "Ramarao Anaparthi", "13-01-1996"
-                , "Business", "8989898989L", "shhekar@gmail.com", "katheru, Rajahmundry",
-                "Rajahmundry", "ASDF45678h", "1234 1234 1234", "1234",
+        Customer cus1 = new Customer("10105", "Lambton College", "Lambton", "14-06-1999"
+                , "Public College", "9876788995", "support@lambton.ca", "North York",
+                "Toronto", "AGDF45698h", "1234 3456 4567", "3456",
                 "1234");
         referenceCustomers.child(cus1.getCin()).setValue(cus1);
-        cus1.createAccount(1,"101011",1000,"","");
-        cus1.createAccount(2,"101012",10000,"","");
-        cus1.createAccount(3,"101013",5000,"XYZ solutions","XYZ123");*/
-        String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
-        referenceTransactions.child(currentTime).setValue(new TransactionsHistory("101011","2021-02-01","Credit","Tranfer",100));
+        cus1.createAccount(1,"101051",6000,"","");
+        //cus1.createAccount(2,"1010",90000,"","");
+        cus1.createAccount(3,"101053",1000000,"Lambton solutions","LAM123");*/
+        //String currentTime = new SimpleDateFormat("yyyy-MM-dd G 'at' HH:mm:ss z").format(new Date());
+        //referenceTransactions.child(currentTime).setValue(new TransactionsHistory("101011","2021-02-01","Credit","Tranfer",100));
         //referenceTransactions.child(currentTime).setValue();
         /*referenceTransactions.setValue();
                             referenceTransactions.setValue();

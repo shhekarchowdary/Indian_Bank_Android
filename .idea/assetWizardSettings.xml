@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/article/baseline_article_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/arrow_downward/baseline_arrow_downward_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,8 +28,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="008577" />
-                            <entry key="outputName" value="ic_baseline_article_24" />
+                            <entry key="color" value="018786" />
+                            <entry key="outputName" value="ic_baseline_arrow_downward_24" />
                             <entry key="sourceFile" value="/C:\Users\Jeethu\AndroidStudioProjects\Indian_Bank_Android" />
                           </map>
                         </option>

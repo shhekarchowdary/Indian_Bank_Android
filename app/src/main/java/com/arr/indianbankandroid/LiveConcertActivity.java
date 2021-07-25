@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -106,11 +107,14 @@ public class LiveConcertActivity extends AppCompatActivity {
                             payment = loggedInCustomer.bookings(3,num);
                             fareconcerttv.setText(Double.toString(payment));
                         }else
-                            Toast.makeText(getBaseContext(),"Select Concert",Toast.LENGTH_LONG).show();
+                             Snackbar.make(getfareconcert, "Select Concert", Snackbar.LENGTH_LONG).show();
+                            //Toast.makeText(getBaseContext(),"Select Concert",Toast.LENGTH_LONG).show();
                     }else
-                        Toast.makeText(getBaseContext(),"Max 5 tickets only per Id",Toast.LENGTH_LONG).show();
+                         Snackbar.make(getfareconcert, "Max 5 tickets only per Id", Snackbar.LENGTH_LONG).show();
+                       // Toast.makeText(getBaseContext(),"Max 5 tickets only per Id",Toast.LENGTH_LONG).show();
                 }else
-                    Toast.makeText(getBaseContext(),"Enter Number Of Tickets",Toast.LENGTH_LONG).show();
+                    Snackbar.make(getfareconcert, "Enter Number Of Tickets", Snackbar.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(),"Enter Number Of Tickets",Toast.LENGTH_LONG).show();
             }
         });
 
@@ -157,7 +161,8 @@ public class LiveConcertActivity extends AppCompatActivity {
                     i.putExtra("fromBookings",1);
                     startActivity(i);
                 }else{
-                    Toast.makeText(getBaseContext(),"InSufficient Balance Booking Failed",Toast.LENGTH_LONG).show();
+                    Snackbar.make(concertbtn, "InSufficient Balance Booking Failed", Snackbar.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(),"InSufficient Balance Booking Failed",Toast.LENGTH_LONG).show();
                 }
             }
         });

@@ -6,38 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/txtmForgotAccess"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/forgotAccess"
-            android:textAlignment="textEnd"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/txtmKnowYourAccess"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_weight="1"
-            android:text="@string/knowAccess"
-            android:textColor="@color/teal_700"
-            android:textSize="16sp" />
-    </LinearLayout>
-
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
@@ -106,17 +74,19 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/logo2" />
 
-    <TextView
+    <Button
         android:id="@+id/txtNext"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next"
+        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:text="NEXT"
         android:textColor="@color/teal_700"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

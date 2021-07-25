@@ -25,7 +25,7 @@
     <View
         android:id="@+id/view5"
         android:layout_width="0dp"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
@@ -39,16 +39,12 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="254dp"
-        android:layout_marginBottom="120dp"
         android:drawableTop="@drawable/ic_baseline_flight_24"
         android:text="Travel"
         android:textColor="@color/teal_700"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view5"
-        app:layout_constraintEnd_toEndOf="@+id/view5"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/view5"
         app:layout_constraintTop_toTopOf="@+id/view5" />
 
@@ -57,28 +53,20 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="254dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="120dp"
         android:drawableTop="@drawable/ic_baseline_movie_creation_24"
         android:text="Movie tickets"
         android:textColor="@color/teal_700"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toEndOf="@+id/view5"
-        app:layout_constraintStart_toStartOf="@+id/view5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/view5" />
 
     <Button
         android:id="@+id/concertsbtn"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="162dp"
-        android:layout_marginEnd="141dp"
-        android:layout_marginBottom="22dp"
+        android:layout_height="67dp"
         android:drawableTop="@drawable/ic_baseline_music_note_24"
         android:text="Live concert"
         android:textColor="@color/teal_700"
@@ -86,6 +74,19 @@
         app:layout_constraintBottom_toBottomOf="@+id/view5"
         app:layout_constraintEnd_toEndOf="@+id/view5"
         app:layout_constraintStart_toStartOf="@+id/view5"
-        app:layout_constraintTop_toTopOf="@+id/view5"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="216dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

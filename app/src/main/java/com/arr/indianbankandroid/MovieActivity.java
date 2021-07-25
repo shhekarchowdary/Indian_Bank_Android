@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -112,9 +113,11 @@ public class MovieActivity extends AppCompatActivity {
                         payment = loggedInCustomer.bookings(1,num);
                         moviegetfare.setText(Double.toString(payment));
                     }else
-                        Toast.makeText(getBaseContext(),"Select Movie",Toast.LENGTH_LONG).show();
+                        Snackbar.make(moviefarebutton, "Please Select Movie", Snackbar.LENGTH_LONG).show();
+                        //Toast.makeText(getBaseContext(),"Select Movie",Toast.LENGTH_LONG).show();
                 }else
-                    Toast.makeText(getBaseContext(),"Enter Number of Seats",Toast.LENGTH_LONG).show();
+                    Snackbar.make(moviefarebutton, "Enter Number of Seats", Snackbar.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(),"Enter Number of Seats",Toast.LENGTH_LONG).show();
             }
         });
 
@@ -161,7 +164,8 @@ public class MovieActivity extends AppCompatActivity {
                     i.putExtra("fromBookings",1);
                     startActivity(i);
                 }else{
-                    Toast.makeText(getBaseContext(),"InSufficient Balance Booking Failed",Toast.LENGTH_LONG).show();
+                    Snackbar.make(moviebutton, "InSufficient Balance Booking Failed", Snackbar.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(),"InSufficient Balance Booking Failed",Toast.LENGTH_LONG).show();
                 }
             }
         });

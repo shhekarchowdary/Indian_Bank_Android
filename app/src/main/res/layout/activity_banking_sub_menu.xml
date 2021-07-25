@@ -71,7 +71,7 @@
         android:text="Check Balance"
         android:textColor="@color/teal_700"
         android:textSize="20sp"
-        android:textStyle="normal"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/view4"
         app:layout_constraintTop_toTopOf="@+id/view4" />
 
@@ -151,6 +151,7 @@
         android:textAllCaps="false"
         android:textColor="@color/teal_700"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/view6"
         app:layout_constraintTop_toTopOf="@+id/view6" />
 
@@ -231,7 +232,7 @@
         android:text="Transfer to others"
         android:textColor="@color/teal_700"
         android:textSize="20sp"
-        android:textStyle="normal"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/view7"
         app:layout_constraintTop_toTopOf="@+id/view7" />
 

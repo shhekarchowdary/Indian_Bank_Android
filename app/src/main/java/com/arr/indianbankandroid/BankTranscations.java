@@ -14,6 +14,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
 
@@ -113,7 +115,8 @@ public class BankTranscations extends AppCompatActivity {
                     amount = Double.parseDouble(etvAmount.getText().toString());
                     Log.d("amount",String.valueOf(amount));
                     if(fromaccty==toaccty){
-                        Toast.makeText(getBaseContext(),"Sender and beneficiary accounts are same. please change",Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getBaseContext(),"Sender and beneficiary accounts are same. please change",Toast.LENGTH_LONG).show();
+                        Snackbar.make(btnTransfer, "Sender and beneficiary accounts are same. please change", Snackbar.LENGTH_LONG).show();
                     }
                     else {
                         boolean t = cusdata.transferMoney(fromaccty, toaccty, amount);
@@ -126,12 +129,14 @@ public class BankTranscations extends AppCompatActivity {
                             Intent i = new Intent(getBaseContext(), Transcation_Success.class);
                             startActivity(i);
                         } else {
-                            Toast.makeText(getBaseContext(), "Transaction failed \n Insufficient Balance", Toast.LENGTH_LONG).show();
+                            Snackbar.make(btnTransfer, "Transaction failed \n Insufficient Balance", Snackbar.LENGTH_LONG).show();
+                            //Toast.makeText(getBaseContext(), "Transaction failed \n Insufficient Balance", Toast.LENGTH_LONG).show();
                         }
                     }
                 }
                 catch (NumberFormatException e){
-                    Toast.makeText(getBaseContext(),"please enter amount",Toast.LENGTH_LONG).show();
+                    Snackbar.make(btnTransfer, "please enter amount", Snackbar.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(),"please enter amount",Toast.LENGTH_LONG).show();
                 }
 
 
@@ -183,7 +188,7 @@ public class BankTranscations extends AppCompatActivity {
                         }
                         else if(a.getType()=="Salary Account"){
                             toaccty=3;
-                            Toast.makeText(getBaseContext(),"toaccty=3",Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getBaseContext(),"toaccty=3",Toast.LENGTH_LONG).show();
                         }
 
                         trfToAcc = a.getCurrentBalance();

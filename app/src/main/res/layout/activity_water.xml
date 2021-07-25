@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".WaterActivity">
 
+    <Button
+        android:id="@+id/waterpaybtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:drawableStart="@drawable/ic_baseline_send_24"
+        android:text="Pay"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waterspinner" />
+
     <TextView
         android:id="@+id/watertv"
         android:layout_width="0dp"
@@ -104,22 +120,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wateramt" />
-
-    <Button
-        android:id="@+id/waterpaybtn"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="50dp"
-        android:background="@color/teal_700"
-        android:text="Pay"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/waterspinner" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

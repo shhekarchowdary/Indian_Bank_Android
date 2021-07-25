@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
 public class PhoneActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -62,13 +64,16 @@ public class PhoneActivity extends AppCompatActivity implements AdapterView.OnIt
                             i.putExtra("fromPayBills",1);
                             startActivity(i);
                         }else{
-                            Toast.makeText(getBaseContext(),"Transaction Declined Insufficient Balance",Toast.LENGTH_SHORT).show();
+                            Snackbar.make(phonepay, "Transaction Declined Insufficient Balance", Snackbar.LENGTH_LONG).show();
+                            //Toast.makeText(getBaseContext(),"Transaction Declined Insufficient Balance",Toast.LENGTH_SHORT).show();
                         }
                     }else {
-                        Toast.makeText(getBaseContext(),"Enter Amount",Toast.LENGTH_SHORT).show();
+                        Snackbar.make(phonepay, "Please Enter Amount", Snackbar.LENGTH_LONG).show();
+                        //Toast.makeText(getBaseContext(),"Enter Amount",Toast.LENGTH_SHORT).show();
                     }
                 }else {
-                    Toast.makeText(getBaseContext(),"Enter Subscription Number",Toast.LENGTH_SHORT).show();
+                    Snackbar.make(phonepay, "Enter Subscription Number", Snackbar.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(),"Enter Subscription Number",Toast.LENGTH_SHORT).show();
                 }
             }
         });

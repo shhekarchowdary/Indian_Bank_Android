@@ -16,4 +16,5 @@
     <string name="back"><![CDATA[<< Back]]></string>
     <string name="enter_pin_number">Enter Pin Number</string>
     <string name="Login">Login</string>
+    <string name="thankyouText">"Thanks for showing Interest with us. Our Agent will get back to yous soon. "</string>
 </resources>

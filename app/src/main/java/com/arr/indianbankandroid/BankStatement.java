@@ -2,6 +2,8 @@ package com.arr.indianbankandroid;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -114,7 +117,8 @@ public class BankStatement extends AppCompatActivity {
                             }
                             Log.d("No of Transactions:",String.valueOf(numberOfTransactions));
                         }else{
-                            Toast.makeText(getApplicationContext(),"No Transactions Found",Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(),"No Transactions Found",Toast.LENGTH_SHORT).show();
+                            Snackbar.make(searchHis, "No Transactions Found", Snackbar.LENGTH_LONG).show();
                         }
                     }
 

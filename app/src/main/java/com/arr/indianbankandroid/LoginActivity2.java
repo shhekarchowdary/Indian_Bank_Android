@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class LoginActivity2 extends AppCompatActivity {
     TextInputEditText mPinNumber;
-    TextView mLoginFinal;
+    Button mLoginFinal;
     ImageView mImageView3;
 
     ArrayList<Customer> mCustomers = MainActivity.mCustomers;

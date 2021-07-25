@@ -6,6 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".TransferToOthersAccountActivity">
 
+    <Button
+        android:id="@+id/btnFetchAccount"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:drawableStart="@drawable/ic_baseline_arrow_downward_24"
+        android:text="Fetch Account Details"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etvTOAAccountNum" />
+
+    <Button
+        android:id="@+id/btnTOATransfer"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:drawableStart="@drawable/ic_baseline_send_24"
+        android:text="Transfer"
+        android:textAllCaps="false"
+        android:textColor="@color/teal_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccountHolderName" />
+
     <TextView
         android:id="@+id/tvSenderDetails"
         android:layout_width="0dp"
@@ -70,26 +103,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSenderDetails" />
 
-    <Button
-        android:id="@+id/btnFetchAccount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
-        android:text="Fetch Account Details"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etvTOAAccountNum" />
-
     <TextView
         android:id="@+id/tvAccountHolderName"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:textColor="@color/teal_700"
         android:textSize="18sp"
@@ -108,21 +126,6 @@
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/tvAmountTOA"
         app:layout_constraintTop_toBottomOf="@+id/tvAccountTOA" />
-
-    <Button
-        android:id="@+id/btnTOATransfer"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="50dp"
-        android:text="Transfer"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAccountHolderName" />
 
     <TextView
         android:id="@+id/tvAccountNoTOA"
