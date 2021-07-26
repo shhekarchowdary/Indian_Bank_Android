@@ -32,6 +32,7 @@ public class BankTranscations extends AppCompatActivity {
     double amount=0;
     double trfToAcc=0;
     public static Account fromaccdata;
+    int cHelper,tmHelper,c1Helper,tm1Helper;
 
     int spinnerselected = BankingSubMenu.selected;
     int trspinnerselected = BankingSubMenu.trselected;
@@ -78,6 +79,7 @@ public class BankTranscations extends AppCompatActivity {
             balanceAmount.setVisibility(View.VISIBLE);
             //Invisible
 
+
             tvAmount.setVisibility(View.INVISIBLE);
             etvAmount.setVisibility(View.INVISIBLE);
             btnTransfer.setVisibility(View.INVISIBLE);
@@ -87,7 +89,10 @@ public class BankTranscations extends AppCompatActivity {
 
             spFromAcc.setSelection(spinnerselected);
             spToAcc.setSelection(trspinnerselected);
-
+            cHelper = c;
+            c1Helper = c1;
+            c = 0;
+            c1 = 0;
 
         }
         else if(tm==1 || tm1==1){
@@ -106,6 +111,10 @@ public class BankTranscations extends AppCompatActivity {
             balanceAmount.setVisibility(View.INVISIBLE);
             tvAccount.setVisibility(View.INVISIBLE);
             Log.d("check","transfer1");
+            tmHelper = tm;
+            tm1Helper = tm1;
+            tm = 0;
+            tm1 = 0;
         }
 
         btnTransfer.setOnClickListener(new View.OnClickListener() {
@@ -155,7 +164,7 @@ public class BankTranscations extends AppCompatActivity {
             if(parent.getId()==R.id.spFromAcc){
                 for(Account a:cusdata.getAccounts()){
                     if(a.getType()==accNames.get(position)){
-                        if(c==1 || c1 == 1){
+                        if(cHelper==1 || c1Helper == 1){
                             balanceAmount.setText(String.valueOf(a.getCurrentBalance()));
                         }
                         else{
@@ -176,6 +185,8 @@ public class BankTranscations extends AppCompatActivity {
                         Toast.makeText(getBaseContext(),"please select account type",Toast.LENGTH_LONG).show();
                     }*/
                 }
+                cHelper = 0;
+                c1Helper = 0;
             }
             else if (parent.getId()==R.id.spToAcc){
                 for(Account a:cusdata.getAccounts()){
